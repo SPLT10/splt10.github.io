@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPL T10 — Admin Dashboard</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-2: #182234;
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #10b981;
+      --accent-2: #3b82f6;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(9, 13, 22, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .btn, input, select, textarea {
+      font-family: inherit;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .btn {
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #052e16;
+      border: none;
+      font-weight: 700;
+    }
+
+    .btn-blue {
+      background: var(--accent-2);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.16);
+      color: #fca5a5;
+      border-color: rgba(239, 68, 68, 0.35);
+    }
+
+    .btn-sm {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .lock-box {
+      max-width: 400px;
+      margin: 48px auto;
+    }
+
+    .lock-box h1 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .lock-box p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      margin-bottom: 12px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+    }
+
+    .field textarea {
+      min-height: 76px;
+      resize: vertical;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px 0 4px;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .tab-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .record-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .record-item {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .record-summary {
+      font-size: 0.88rem;
+      flex: 1 1 240px;
+      word-break: break-word;
+    }
+
+    .record-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      z-index: 60;
+      display: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <span class="title">SPL T10 • Admin Dashboard</span>
+      <div style="display:flex;gap:8px;">
+        <a class="btn btn-sm" href="./index.html">View Site</a>
+        <button class="btn btn-sm btn-danger hidden" id="lockBtn">Lock</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- PIN Unlock -->
+    <section id="authSection" class="card lock-box">
+      <h1>Admin Access</h1>
+      <p>Enter your secret PIN to manage SPL T10 tournament records on Google Sheets.</p>
+      <form id="pinForm">
+        <div class="field">
+          <label for="pinInput">Secret PIN</label>
+          <input type="password" id="pinInput" placeholder="Enter PIN" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Unlock Dashboard</button>
+      </form>
+    </section>
+
+    <!-- Main Dashboard -->
+    <section id="dashSection" class="hidden">
+      <div class="tabs" id="sheetTabs">
+        <button class="tab-btn active" data-sheet="Matches">Matches</button>
+        <button class="tab-btn" data-sheet="PointsTable">PointsTable</button>
+        <button class="tab-btn" data-sheet="Teams">Teams</button>
+        <button class="tab-btn" data-sheet="Players">Players</button>
+        <button class="tab-btn" data-sheet="Seasons">Seasons</button>
+        <button class="tab-btn" data-sheet="News">News</button>
+        <button class="tab-btn" data-sheet="Gallery">Gallery</button>
+      </div>
+
+      <!-- Add / Edit Form -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap;">
+          <h2 id="formTitle" style="font-size:1.05rem;">Add Match</h2>
+          <button type="button" class="btn btn-sm hidden" id="cancelEditBtn">Cancel Edit</button>
+        </div>
+
+        <form id="dataForm">
+          <div class="form-grid" id="dynamicFields"></div>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Save to Sheet</button>
+            <button type="button" class="btn" id="reloadBtn">Reload Rows</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Existing Records -->
+      <div class="card">
+        <h3 style="font-size:1rem;margin-bottom:4px;">Existing Records (<span id="recordCount">0</span>)</h3>
+        <p class="muted">Tap Edit to update a row or Delete to remove it.</p>
+        <div class="record-list" id="recordList">
+          <div class="muted">Loading records...</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbxga1GsR5689bz8PJhTp-VOXRhhS3LlQnXQs2myGCNncj0WI0MORQxqbqolSQV0bWk/exec";
+
+    const SCHEMAS = {
+      Seasons: ["SeasonID", "SeasonName", "Status", "Champion", "RunnerUp", "PlayerOfTournament", "Summary"],
+      Teams: ["TeamID", "SeasonID", "TeamName", "ShortCode", "LogoURL", "Captain", "Overview"],
+      Players: ["PlayerID", "SeasonID", "TeamName", "PlayerName", "Role", "BattingStyle", "BowlingStyle", "IsCaptain", "Runs", "Wickets"],
+      Matches: ["MatchID", "SeasonID", "MatchNo", "Date", "Time", "Venue", "Status", "TeamA", "TeamB", "ScoreA", "OversA", "ScoreB", "OversB", "Result", "PlayerOfMatch"],
+      PointsTable: ["SeasonID", "GroupName", "TeamName", "ShortCode", "Played", "Won", "Lost", "Tied", "NoResult", "Points"],
+      News: ["NewsID", "SeasonID", "Title", "Date", "Description"],
+      Gallery: ["PhotoID", "SeasonID", "Caption", "ImageURL", "Date"]
+    };
+
+    let pin = sessionStorage.getItem("spl_admin_pin") || "";
+    let currentSheet = "Matches";
+    let editingRowIndex = null;
+    let currentRows = [];
+
+    const authSection = document.getElementById("authSection");
+    const dashSection = document.getElementById("dashSection");
+    const lockBtn = document.getElementById("lockBtn");
+    const dynamicFields = document.getElementById("dynamicFields");
+    const dataForm = document.getElementById("dataForm");
+    const formTitle = document.getElementById("formTitle");
+    const cancelEditBtn = document.getElementById("cancelEditBtn");
+    const recordList = document.getElementById("recordList");
+    const recordCount = document.getElementById("recordCount");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function showToast(msg, isError = false) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.style.borderColor = isError ? "#ef4444" : "#10b981";
+      el.style.display = "block";
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        el.style.display = "none";
+      }, 2800);
+    }
+
+    function unlockUI() {
+      authSection.classList.add("hidden");
+      dashSection.classList.remove("hidden");
+      lockBtn.classList.remove("hidden");
+      buildFormFields();
+      fetchRows();
+    }
+
+    function lockUI() {
+      pin = "";
+      sessionStorage.removeItem("spl_admin_pin");
+      dashSection.classList.add("hidden");
+      lockBtn.classList.add("hidden");
+      authSection.classList.remove("hidden");
+      document.getElementById("pinInput").value = "";
+    }
+
+    document.getElementById("pinForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const val = document.getElementById("pinInput").value.trim();
+      if (!val) return;
+      pin = val;
+      sessionStorage.setItem("spl_admin_pin", pin);
+      unlockUI();
+    });
+
+    lockBtn.addEventListener("click", lockUI);
+
+    document.querySelectorAll("#sheetTabs .tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#sheetTabs .tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentSheet = btn.dataset.sheet;
+        resetEditMode();
+        buildFormFields();
+        fetchRows();
+      });
+    });
+
+    function buildFormFields(prefill = {}) {
+      const fields = SCHEMAS[currentSheet] || [];
+      dynamicFields.innerHTML = fields.map(col => {
+        const val = prefill[col] ?? "";
+        if (col === "Summary" || col === "Description" || col === "Overview") {
+          return `
+            <div class="field" style="grid-column: 1 / -1;">
+              <label for="f_${col}">${col}</label>
+              <textarea id="f_${col}" name="${col}">${esc(val)}</textarea>
+            </div>
+          `;
+        }
+        return `
+          <div class="field">
+            <label for="f_${col}">${col}</label>
+            <input type="text" id="f_${col}" name="${col}" value="${esc(val)}" />
+          </div>
+        `;
+      }).join("");
+    }
+
+    function resetEditMode() {
+      editingRowIndex = null;
+      formTitle.textContent = `Add ${currentSheet}`;
+      submitBtn.textContent = "Save to Sheet";
+      cancelEditBtn.classList.add("hidden");
+      dataForm.reset();
+    }
+
+    cancelEditBtn.addEventListener("click", resetEditMode);
+
+    async function fetchRows() {
+      recordList.innerHTML = `<div class="muted">Loading ${esc(currentSheet)}...</div>`;
+      try {
+        const res = await fetch(`${API_URL}?sheet=${encodeURIComponent(currentSheet)}`, { cache: "no-store" });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || "Failed to load rows");
+        currentRows = json.data || [];
+        renderRows();
+      } catch (err) {
+        recordList.innerHTML = `<div class="muted">Error: ${esc(err.message)}</div>`;
+      }
+    }
+
+    function renderRows() {
+      recordCount.textContent = currentRows.length;
+      if (!currentRows.length) {
+        recordList.innerHTML = `<div class="muted">No rows in ${esc(currentSheet)} yet.</div>`;
+        return;
+      }
+
+      const keys = SCHEMAS[currentSheet] || [];
+      recordList.innerHTML = currentRows.map((row, idx) => {
+        const preview = keys
+          .filter(k => row[k] !== undefined && String(row[k]).trim() !== "")
+          .slice(0, 5)
+          .map(k => `<strong>${esc(k)}:</strong> ${esc(row[k])}`)
+          .join(" • ");
+
+        return `
+          <div class="record-item">
+            <div class="record-summary">${preview || "Empty row"}</div>
+            <div class="record-actions">
+              <button type="button" class="btn btn-sm btn-blue" onclick="startEdit(${idx})">Edit</button>
+              <button type="button" class="btn btn-sm btn-danger" onclick="deleteRow(${row._rowIndex})">Delete</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    window.startEdit = function(idx) {
+      const row = currentRows[idx];
+      if (!row) return;
+      editingRowIndex = row._rowIndex;
+      formTitle.textContent = `Edit Row #${editingRowIndex} (${currentSheet})`;
+      submitBtn.textContent = "Update Row";
+      cancelEditBtn.classList.remove("hidden");
+      buildFormFields(row);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    window.deleteRow = async function(rowIndex) {
+      if (!confirm(`Delete row #${rowIndex} from ${currentSheet}?`)) return;
+      await postAction({
+        pin,
+        sheet: currentSheet,
+        action: "delete",
+        rowIndex
+      }, "Row deleted");
+    };
+
+    dataForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const rowData = {};
+      (SCHEMAS[currentSheet] || []).forEach(col => {
+        const input = document.getElementById(`f_${col}`);
+        rowData[col] = input ? input.value.trim() : "";
+      });
+
+      if (editingRowIndex) {
+        await postAction({
+          pin,
+          sheet: currentSheet,
+          action: "update",
+          rowIndex: editingRowIndex,
+          row: rowData
+        }, "Row updated");
+      } else {
+        await postAction({
+          pin,
+          sheet: currentSheet,
+          action: "add",
+          row: rowData
+        }, "Row added");
+      }
+    });
+
+    async function postAction(payload, successMsg) {
+      submitBtn.disabled = true;
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if (!json.ok) {
+          if (json.error === "Invalid PIN") {
+            showToast("Invalid PIN! Please unlock again.", true);
+            lockUI();
+            return;
+          }
+          throw new Error(json.error || "Action failed");
+        }
+        showToast(successMsg);
+        resetEditMode();
+        await fetchRows();
+      } catch (err) {
+        showToast(err.message, true);
+      } finally {
+        submitBtn.disabled = false;
+      }
+    }
+
+    document.getElementById("reloadBtn").addEventListener("click", fetchRows);
+
+    function esc(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    if (pin) {
+      unlockUI();
+    }
+  </script>
+</body>
+  </html>
