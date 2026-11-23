@@ -1,62 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0d12">
-<meta name="description" content="Shadhubari Premier League — SPL T10, Sherpur, Bogura. Seasons, teams, players, fixtures and tournament memories.">
-<title>SPL T10 | Shadhubari Premier League</title>
-<style>
-:root{--bg:#090b10;--panel:#121722;--panel2:#171e2b;--gold:#d8b15c;--gold2:#f1d48e;--text:#f5f3ee;--muted:#a8afbd;--line:rgba(216,177,92,.2);--red:#8d3038}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(9,11,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em}.crest{width:42px;height:42px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-weight:950;font-size:13px;transform:skew(-5deg)}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.17em;font-weight:700}.navlinks{display:flex;gap:20px;align-items:center;font-size:13px;color:#d8dbe2}.navlinks a:hover{color:var(--gold2)}.lang{border:1px solid var(--line);background:var(--panel);color:var(--gold2);border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:800;font-size:12px}
-.hero{padding:76px 0 58px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 20%,rgba(145,102,37,.2),transparent 38%),linear-gradient(135deg,#0b0d12 10%,#121824 100%);border-bottom:1px solid var(--line)}
-.hero:after{content:"SPL";position:absolute;right:-18px;bottom:-105px;font-size:clamp(190px,34vw,420px);font-weight:1000;letter-spacing:-.1em;color:rgba(255,255,255,.025);pointer-events:none}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.24em;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(42px,8vw,86px);line-height:.98;letter-spacing:-.055em;margin:17px 0 18px;max-width:780px}.hero h1 span{color:var(--gold)}.lead{max-width:570px;color:#c1c6d0;font-size:16px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:8px;font-weight:850;font-size:13px;border:1px solid var(--gold);background:var(--gold);color:#17130b}.btn.secondary{background:transparent;color:var(--gold2)}.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:42px}.metric strong{display:block;font-size:24px;color:var(--gold2)}.metric span{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:25px}.section-head h2{font-size:clamp(26px,4vw,38px);line-height:1.1;margin:7px 0 0;letter-spacing:-.035em}.section-head p{color:var(--muted);font-size:13px;max-width:430px;margin:0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:20px;min-height:160px}.card .num{font-size:11px;color:var(--gold);letter-spacing:.18em;font-weight:900}.card h3{margin:13px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:13px}.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 9px;color:var(--gold2);font-size:10px;font-weight:800;margin-top:15px}
-.seasons{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.season{padding:25px;border-radius:15px;background:linear-gradient(135deg,#1a202c,#10141d);border:1px solid var(--line);position:relative;overflow:hidden}.season:after{content:attr(data-season);position:absolute;right:5px;bottom:-35px;font-size:125px;font-weight:1000;color:rgba(255,255,255,.035)}.season h3{font-size:26px;margin:7px 0}.season p{color:var(--muted);font-size:13px;max-width:400px}.status{font-size:10px;color:#151108;background:var(--gold);padding:5px 9px;border-radius:30px;font-weight:900;letter-spacing:.1em}
-.notice{border:1px dashed rgba(216,177,92,.35);border-radius:12px;padding:18px;color:var(--muted);font-size:13px;background:rgba(216,177,92,.035)}
-.photo-placeholder{min-height:145px;border:1px dashed rgba(216,177,92,.35);border-radius:12px;background:linear-gradient(135deg,#171e2a,#0e121a);display:grid;place-items:center;text-align:center;color:var(--muted);padding:20px;font-size:13px}.photo-placeholder b{display:block;color:var(--gold2);font-size:14px;margin-bottom:4px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.gold{color:var(--gold2)}
-@media(max-width:760px){.nav{height:64px}.navlinks{display:none}.hero{padding:58px 0 45px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:12px}.seasons{grid-template-columns:1fr}}
-@media(max-width:440px){.grid{grid-template-columns:1fr}.hero-meta{gap:18px}.brand small{font-size:8px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPL T10 — Official Tournament Hub</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-2: #182234;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #10b981;
+      --accent-2: #f59e0b;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(9, 13, 22, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      font-size: 1.15rem;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent), #059669);
+      color: #04130d;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    select, .btn {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #052e16;
+      border: none;
+      font-weight: 700;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 28px 0 18px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.12), transparent 55%);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    .season-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 999px;
+    }
+
+    .pill strong {
+      color: var(--text);
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px 0;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: 0.15s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* Main Content */
+    main {
+      padding: 20px 0 56px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .status-badge {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      background: rgba(148, 163, 184, 0.14);
+      color: var(--text);
+    }
+
+    .status-live {
+      background: rgba(239, 68, 68, 0.18);
+      color: #fca5a5;
+    }
+
+    .status-completed {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+    }
+
+    .match-teams {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .team-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .score-box {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .overs {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .match-foot {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    /* Table */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: var(--surface-2);
+    }
+
+    td.pts {
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    /* Gallery & Team */
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .flex-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: var(--surface-2);
+      margin-bottom: 10px;
+    }
+
+    .empty, .loading {
+      text-align: center;
+      padding: 40px 16px;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+  </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="SPL T10 Home"><span class="crest">SPL</span><span>SPL T10<small>SHADHUBARI PREMIER LEAGUE</small></span></a>
-    <nav class="navlinks" aria-label="Main navigation">
-      <a href="#about" data-en="About" data-bn="পরিচিতি">About</a><a href="#seasons" data-en="Seasons" data-bn="সিজন">Seasons</a><a href="#teams" data-en="Teams" data-bn="দল">Teams</a><a href="#players" data-en="Players" data-bn="খেলোয়াড়">Players</a><a href="#fixtures" data-en="Fixtures" data-bn="সূচি">Fixtures</a><a href="#gallery" data-en="Gallery" data-bn="গ্যালারি">Gallery</a>
-    </nav>
-    <button class="lang" id="langBtn" type="button" aria-label="Switch language">বাংলা</button>
-  </div>
-</header>
-<main>
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="eyebrow" data-en="Sherpur, Bogura · Bangladesh" data-bn="শেরপুর, বগুড়া · বাংলাদেশ">Sherpur, Bogura · Bangladesh</div>
-    <h1 data-en="THE GAME.<br><span>THE GLORY.</span>" data-bn="খেলার লড়াই।<br><span>গৌরবের ইতিহাস।</span>">THE GAME.<br><span>THE GLORY.</span></h1>
-    <p class="lead" data-en="The official digital home of Shadhubari Premier League — celebrating teams, players, matches and memories across every season." data-bn="Shadhubari Premier League-এর ডিজিটাল ঠিকানা—প্রতিটি সিজনের দল, খেলোয়াড়, ম্যাচ ও স্মৃতি এক জায়গায়।">The official digital home of Shadhubari Premier League — celebrating teams, players, matches and memories across every season.</p>
-    <div class="actions"><a class="btn" href="#seasons" data-en="EXPLORE SEASONS" data-bn="সিজন দেখুন">EXPLORE SEASONS</a><a class="btn secondary" href="#about" data-en="ABOUT THE LEAGUE" data-bn="লীগ সম্পর্কে">ABOUT THE LEAGUE</a></div>
-    <div class="hero-meta"><div class="metric"><strong>02</strong><span data-en="Completed seasons" data-bn="সম্পন্ন সিজন">Completed seasons</span></div><div class="metric"><strong>03</strong><span data-en="Next planned season" data-bn="পরিকল্পিত পরবর্তী সিজন">Next planned season</span></div><div class="metric"><strong>T10</strong><span data-en="Cricket format" data-bn="ক্রিকেট ফরম্যাট">Cricket format</span></div></div>
-  </div>
-</section>
-<section id="about"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="OUR LEAGUE" data-bn="আমাদের লীগ">OUR LEAGUE</div><h2 data-en="A local league. A lasting legacy." data-bn="স্থানীয় আয়োজন, দীর্ঘস্থায়ী স্মৃতি।">A local league. A lasting legacy.</h2></div><p data-en="A home for the league’s story — from its seasons and teams to the players and moments that make SPL special." data-bn="লীগের সিজন, দল, খেলোয়াড় এবং বিশেষ মুহূর্তগুলোর ইতিহাস সংরক্ষণের একটি ঠিকানা।">A home for the league’s story — from its seasons and teams to the players and moments that make SPL special.</p></div><div class="notice" data-en="Official league information will be added after verification. This first version uses clearly marked placeholders and does not invent teams, players, scores or tournament records." data-bn="যাচাই করার পর লীগের প্রকৃত তথ্য যোগ করা হবে। এই প্রথম সংস্করণে কোনো দল, খেলোয়াড়, স্কোর বা টুর্নামেন্টের রেকর্ড বানিয়ে দেওয়া হয়নি।">Official league information will be added after verification. This first version uses clearly marked placeholders and does not invent teams, players, scores or tournament records.</div></div></section>
-<section id="seasons"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="TOURNAMENT HISTORY" data-bn="টুর্নামেন্টের ইতিহাস">TOURNAMENT HISTORY</div><h2 data-en="Every season. One home." data-bn="প্রতিটি সিজন, একই ঠিকানায়।">Every season. One home.</h2></div><p data-en="Explore the league archive. Detailed records will be published from the information you provide." data-bn="লীগের আর্কাইভ দেখুন। তোমার দেওয়া তথ্য থেকে বিস্তারিত রেকর্ড প্রকাশ করা হবে।">Explore the league archive. Detailed records will be published from the information you provide.</p></div><div class="seasons"><article class="season" data-season="01"><span class="status" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span><h3>Season 01</h3><p data-en="The first chapter of Shadhubari Premier League. Teams, fixtures, results and champions will be added after receiving the official records." data-bn="Shadhubari Premier League-এর প্রথম অধ্যায়। অফিসিয়াল তথ্য পাওয়ার পর দল, সূচি, ফলাফল ও চ্যাম্পিয়ন যুক্ত করা হবে।">The first chapter of Shadhubari Premier League. Teams, fixtures, results and champions will be added after receiving the official records.</p></article><article class="season" data-season="02"><span class="status" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span><h3>Season 02</h3><p data-en="The second chapter of the league. The full season archive will be built from your tournament data." data-bn="লীগের দ্বিতীয় অধ্যায়। তোমার দেওয়া টুর্নামেন্টের তথ্য দিয়ে পূর্ণ আর্কাইভ তৈরি করা হবে।">The second chapter of the league. The full season archive will be built from your tournament data.</p></article></div></div></section>
-<section id="teams"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="THE COMPETITORS" data-bn="প্রতিযোগী দল">THE COMPETITORS</div><h2 data-en="Teams of SPL" data-bn="SPL-এর দলসমূহ">Teams of SPL</h2></div><p data-en="Team crests, squad photos, captains and season appearances." data-bn="দলের লোগো, স্কোয়াডের ছবি, অধিনায়ক ও সিজনভিত্তিক অংশগ্রহণ।">Team crests, squad photos, captains and season appearances.</p></div><div class="photo-placeholder"><div><b data-en="TEAM PROFILES COMING SOON" data-bn="দলের প্রোফাইল শিগগিরই">TEAM PROFILES COMING SOON</b><span data-en="Official team names and photos will be added here." data-bn="এখানে দলের আসল নাম ও ছবি যুক্ত করা হবে।">Official team names and photos will be added here.</span></div></div></div></section>
-<section id="players"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="THE PLAYERS" data-bn="খেলোয়াড়">THE PLAYERS</div><h2 data-en="Meet the players" data-bn="খেলোয়াড়দের সঙ্গে পরিচিত হোন">Meet the players</h2></div><p data-en="Individual player pages with portraits, team association and verified details." data-bn="প্রত্যেক খেলোয়াড়ের ছবি, দলের পরিচয় এবং যাচাই করা তথ্যসহ আলাদা প্রোফাইল।">Individual player pages with portraits, team association and verified details.</p></div><div class="photo-placeholder"><div><b data-en="PLAYER PROFILES COMING SOON" data-bn="খেলোয়াড়দের প্রোফাইল শিগগিরই">PLAYER PROFILES COMING SOON</b><span data-en="Player names and original photos will be added after collection." data-bn="খেলোয়াড়দের নাম ও নিজস্ব ছবি সংগ্রহের পর যোগ করা হবে।">Player names and original photos will be added after collection.</span></div></div></div></section>
-<section id="fixtures"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="MATCH CENTRE" data-bn="ম্যাচ সেন্টার">MATCH CENTRE</div><h2 data-en="Fixtures & results" data-bn="ম্যাচের সূচি ও ফলাফল">Fixtures & results</h2></div><p data-en="Pre-published schedules and final match results — no live-score operation required." data-bn="আগে থেকে প্রকাশিত সময়সূচি ও ম্যাচ শেষে চূড়ান্ত ফলাফল—লাইভ স্কোর পরিচালনার প্রয়োজন নেই।">Pre-published schedules and final match results — no live-score operation required.</p></div><div class="notice" data-en="Fixtures and results will appear here when the season data is added." data-bn="সিজনের তথ্য যোগ করা হলে এখানে ম্যাচের সূচি ও ফলাফল দেখা যাবে।">Fixtures and results will appear here when the season data is added.</div></div></section>
-<section id="gallery"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="CAPTURED MOMENTS" data-bn="স্মরণীয় মুহূর্ত">CAPTURED MOMENTS</div><h2 data-en="The SPL gallery" data-bn="SPL গ্যালারি">The SPL gallery</h2></div><p data-en="Tournament photography, team celebrations, awards and special moments." data-bn="টুর্নামেন্টের ছবি, দলের উদযাপন, পুরস্কার ও বিশেষ মুহূর্ত।">Tournament photography, team celebrations, awards and special moments.</p></div><div class="photo-placeholder"><div><b data-en="PHOTO GALLERY COMING SOON" data-bn="ছবির গ্যালারি শিগগিরই">PHOTO GALLERY COMING SOON</b><span data-en="Your original tournament photos will be featured here." data-bn="তোমাদের তোলা টুর্নামেন্টের ছবি এখানে প্রকাশ করা হবে।">Your original tournament photos will be featured here.</span></div></div></div></section>
-</main>
-<footer><div class="wrap foot"><span><b class="gold">SPL T10</b> · Shadhubari Premier League</span><span>Sherpur, Bogura, Bangladesh</span><span>© <span id="year"></span> SPL T10</span></div></footer>
-<script>
-const btn=document.getElementById('langBtn');let lang='en';
-function setLanguage(next){lang=next;document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-bn]').forEach(el=>{el.innerHTML=el.dataset[lang]});btn.textContent=lang==='en'?'বাংলা':'English';}
-btn.addEventListener('click',()=>setLanguage(lang==='en'?'bn':'en'));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="./">
+        <span class="brand-badge">SPL T10</span>
+        <span>SHERPUR • BOGURA</span>
+      </a>
+      <div class="nav-right">
+        <select id="seasonSelect" aria-label="Select Season"></select>
+        <a class="btn btn-primary" href="./admin.html">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-top">
+        <div>
+          <h1 id="heroTitle">SPL T10 Official Portal</h1>
+          <p id="heroSubtitle">Fixtures, live scores, standings, squads, news & gallery</p>
+        </div>
+        <button class="btn" id="refreshBtn">Refresh Data</button>
+      </div>
+      <div class="season-meta" id="seasonMeta"></div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="Matches">Matches</button>
+        <button class="tab-btn" data-tab="PointsTable">Points Table</button>
+        <button class="tab-btn" data-tab="Teams">Teams</button>
+        <button class="tab-btn" data-tab="Players">Players</button>
+        <button class="tab-btn" data-tab="News">News</button>
+        <button class="tab-btn" data-tab="Gallery">Gallery</button>
+        <button class="tab-btn" data-tab="Seasons">Seasons</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div id="content" class="loading">Loading live tournament data...</div>
+  </main>
+
+  <footer>
+    <div class="container">
+      SPL T10 • Sherpur, Bogura • Powered by Google Sheets & GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbxga1GsR5689bz8PJhTp-VOXRhhS3LlQnXQs2myGCNncj0WI0MORQxqbqolSQV0bWk/exec";
+
+    const state = {
+      db: {
+        Seasons: [],
+        Teams: [],
+        Players: [],
+        Matches: [],
+        PointsTable: [],
+        News: [],
+        Gallery: []
+      },
+      activeSeason: "",
+      activeTab: "Matches"
+    };
+
+    const contentEl = document.getElementById("content");
+    const seasonSelect = document.getElementById("seasonSelect");
+    const seasonMeta = document.getElementById("seasonMeta");
+
+    async function loadAllData() {
+      contentEl.innerHTML = `<div class="loading">Syncing latest data from database...</div>`;
+      try {
+        const res = await fetch(API_URL, { cache: "no-store" });
+        const json = await res.json();
+        if (!json.ok) throw new Error(json.error || "Failed to load data");
+
+        state.db = Object.assign(state.db, json.data || {});
+        setupSeasons();
+        render();
+      } catch (err) {
+        contentEl.innerHTML = `<div class="empty">Unable to load tournament data: ${esc(err.message)}</div>`;
+      }
+    }
+
+    function setupSeasons() {
+      const seasons = state.db.Seasons || [];
+      if (!seasons.length) {
+        seasonSelect.innerHTML = `<option value="">All Seasons</option>`;
+        seasonMeta.innerHTML = `<span class="pill">No seasons added yet</span>`;
+        return;
+      }
+
+      const active = seasons.find(s => String(s.Status).toLowerCase() === "active");
+      if (!state.activeSeason) {
+        state.activeSeason = active ? String(active.SeasonID) : String(seasons[0].SeasonID);
+      }
+
+      seasonSelect.innerHTML =
+        `<option value="">All Seasons</option>` +
+        seasons.map(s => `<option value="${esc(s.SeasonID)}" ${String(s.SeasonID) === state.activeSeason ? "selected" : ""}>${esc(s.SeasonName || s.SeasonID)}</option>`).join("");
+
+      const current = seasons.find(s => String(s.SeasonID) === state.activeSeason);
+      if (current) {
+        seasonMeta.innerHTML = `
+          <span class="pill">Status: <strong>${esc(current.Status || "N/A")}</strong></span>
+          ${current.Champion ? `<span class="pill">Champion: <strong>${esc(current.Champion)}</strong></span>` : ""}
+          ${current.RunnerUp ? `<span class="pill">Runner-up: <strong>${esc(current.RunnerUp)}</strong></span>` : ""}
+          ${current.PlayerOfTournament ? `<span class="pill">POT: <strong>${esc(current.PlayerOfTournament)}</strong></span>` : ""}
+        `;
+      } else {
+        seasonMeta.innerHTML = `<span class="pill">Showing records across all seasons</span>`;
+      }
+    }
+
+    function filterBySeason(rows) {
+      if (!state.activeSeason) return rows || [];
+      const filtered = (rows || []).filter(r => String(r.SeasonID || "") === state.activeSeason);
+      return filtered.length ? filtered : (rows || []);
+    }
+
+    function render() {
+      const tab = state.activeTab;
+      if (tab === "Matches") return renderMatches();
+      if (tab === "PointsTable") return renderPointsTable();
+      if (tab === "Teams") return renderTeams();
+      if (tab === "Players") return renderPlayers();
+      if (tab === "News") return renderNews();
+      if (tab === "Gallery") return renderGallery();
+      if (tab === "Seasons") return renderSeasons();
+    }
+
+    function renderMatches() {
+      const rows = filterBySeason(state.db.Matches);
+      if (!rows.length) return emptyState("No matches scheduled yet.");
+
+      contentEl.innerHTML = `<div class="grid">` + rows.map(m => {
+        const st = String(m.Status || "Scheduled");
+        const stClass = st.toLowerCase() === "live" ? "status-live" : (st.toLowerCase() === "completed" ? "status-completed" : "");
+        return `
+          <article class="card">
+            <div class="card-header">
+              <span>Match #${esc(m.MatchNo || "-")} • ${esc(m.Date || "")} ${esc(m.Time || "")}</span>
+              <span class="status-badge ${stClass}">${esc(st)}</span>
+            </div>
+            <div class="match-teams">
+              <div class="team-row">
+                <span>${esc(m.TeamA || "TBD")}</span>
+                <div class="score-box">
+                  <span>${esc(m.ScoreA ?? "-")}</span>
+                  ${m.OversA ? `<span class="overs">(${esc(m.OversA)} ov)</span>` : ""}
+                </div>
+              </div>
+              <div class="team-row">
+                <span>${esc(m.TeamB || "TBD")}</span>
+                <div class="score-box">
+                  <span>${esc(m.ScoreB ?? "-")}</span>
+                  ${m.OversB ? `<span class="overs">(${esc(m.OversB)} ov)</span>` : ""}
+                </div>
+              </div>
+            </div>
+            <div class="match-foot">
+              ${esc(m.Result || m.Venue || "Venue TBA")}
+              ${m.PlayerOfMatch ? ` • POTM: ${esc(m.PlayerOfMatch)}` : ""}
+            </div>
+          </article>
+        `;
+      }).join("") + `</div>`;
+    }
+
+    function renderPointsTable() {
+      const rows = [...filterBySeason(state.db.PointsTable)].sort((a, b) => Number(b.Points || 0) - Number(a.Points || 0));
+      if (!rows.length) return emptyState("Points table is not available yet.");
+
+      contentEl.innerHTML = `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Team</th>
+                <th>P</th>
+                <th>W</th>
+                <th>L</th>
+                <th>T</th>
+                <th>NR</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((r, i) => `
+                <tr>
+                  <td>${i + 1}</td>
+                  <td><strong>${esc(r.TeamName || r.ShortCode || "-")}</strong></td>
+                  <td>${esc(r.Played ?? 0)}</td>
+                  <td>${esc(r.Won ?? 0)}</td>
+                  <td>${esc(r.Lost ?? 0)}</td>
+                  <td>${esc(r.Tied ?? 0)}</td>
+                  <td>${esc(r.NoResult ?? 0)}</td>
+                  <td class="pts">${esc(r.Points ?? 0)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderTeams() {
+      const rows = filterBySeason(state.db.Teams);
+      if (!rows.length) return emptyState("No teams listed yet.");
+
+      contentEl.innerHTML = `<div class="grid">` + rows.map(t => `
+        <article class="card">
+          <div class="flex-row">
+            ${t.LogoURL ? `<img class="avatar" src="${esc(t.LogoURL)}" alt="${esc(t.TeamName)}" />` : `<div class="avatar"></div>`}
+            <div>
+              <h3>${esc(t.TeamName || "-")}</h3>
+              <div class="card-header" style="margin:0">${esc(t.ShortCode || "")} ${t.Captain ? `• Captain: ${esc(t.Captain)}` : ""}</div>
+            </div>
+          </div>
+          ${t.Overview ? `<p style="margin-top:10px;color:var(--muted);font-size:0.88rem">${esc(t.Overview)}</p>` : ""}
+        </article>
+      `).join("") + `</div>`;
+    }
+
+    function renderPlayers() {
+      const rows = filterBySeason(state.db.Players);
+      if (!rows.length) return emptyState("No players listed yet.");
+
+      contentEl.innerHTML = `
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Team</th>
+                <th>Role</th>
+                <th>Runs</th>
+                <th>Wickets</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(p => `
+                <tr>
+                  <td><strong>${esc(p.PlayerName || "-")}</strong> ${String(p.IsCaptain).toUpperCase() === "TRUE" || String(p.IsCaptain).toUpperCase() === "YES" ? "(C)" : ""}</td>
+                  <td>${esc(p.TeamName || "-")}</td>
+                  <td>${esc(p.Role || "-")}</td>
+                  <td>${esc(p.Runs ?? 0)}</td>
+                  <td>${esc(p.Wickets ?? 0)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderNews() {
+      const rows = filterBySeason(state.db.News);
+      if (!rows.length) return emptyState("No news updates published yet.");
+
+      contentEl.innerHTML = `<div class="grid">` + rows.map(n => `
+        <article class="card">
+          <div class="card-header"><span>${esc(n.Date || "")}</span></div>
+          <h3 style="margin-bottom:8px">${esc(n.Title || "Update")}</h3>
+          <p style="color:var(--muted);font-size:0.9rem">${esc(n.Description || "")}</p>
+        </article>
+      `).join("") + `</div>`;
+    }
+
+    function renderGallery() {
+      const rows = filterBySeason(state.db.Gallery);
+      if (!rows.length) return emptyState("No photos in gallery yet.");
+
+      contentEl.innerHTML = `<div class="grid">` + rows.map(g => `
+        <article class="card">
+          ${g.ImageURL ? `<img class="gallery-img" src="${esc(g.ImageURL)}" alt="${esc(g.Caption || "SPL T10 Photo")}" />` : ""}
+          <p style="font-size:0.9rem;font-weight:600">${esc(g.Caption || "")}</p>
+          ${g.Date ? `<span class="card-header" style="margin-top:6px;margin-bottom:0">${esc(g.Date)}</span>` : ""}
+        </article>
+      `).join("") + `</div>`;
+    }
+
+    function renderSeasons() {
+      const rows = state.db.Seasons || [];
+      if (!rows.length) return emptyState("No seasons found.");
+
+      contentEl.innerHTML = `<div class="grid">` + rows.map(s => `
+        <article class="card">
+          <div class="card-header">
+            <span>${esc(s.SeasonID || "")}</span>
+            <span class="status-badge">${esc(s.Status || "")}</span>
+          </div>
+          <h3 style="margin-bottom:8px">${esc(s.SeasonName || "")}</h3>
+          <p style="color:var(--muted);font-size:0.88rem">
+            ${s.Champion ? `Champion: <strong>${esc(s.Champion)}</strong><br>` : ""}
+            ${s.RunnerUp ? `Runner-up: <strong>${esc(s.RunnerUp)}</strong><br>` : ""}
+            ${s.PlayerOfTournament ? `Player of Tournament: <strong>${esc(s.PlayerOfTournament)}</strong><br>` : ""}
+            ${s.Summary ? `<span style="display:block;margin-top:6px">${esc(s.Summary)}</span>` : ""}
+          </p>
+        </article>
+      `).join("") + `</div>`;
+    }
+
+    function emptyState(msg) {
+      return `<div class="empty">${esc(msg)}</div>`;
+    }
+
+    function esc(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        state.activeTab = btn.dataset.tab;
+        render();
+      });
+    });
+
+    seasonSelect.addEventListener("change", (e) => {
+      state.activeSeason = e.target.value;
+      setupSeasons();
+      render();
+    });
+
+    document.getElementById("refreshBtn").addEventListener("click", loadAllData);
+
+    loadAllData();
+  </script>
 </body>
-</html>
+  </html>
