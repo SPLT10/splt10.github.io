@@ -3,60 +3,1237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0d12">
-<meta name="description" content="Shadhubari Premier League — SPL T10, Sherpur, Bogura. Seasons, teams, players, fixtures and tournament memories.">
+<meta name="theme-color" content="#090b10">
+<meta name="description" content="Shadhubari Premier League — SPL T10, Sherpur, Bogura. Official Digital Zone.">
 <title>SPL T10 | Shadhubari Premier League</title>
 <style>
-:root{--bg:#090b10;--panel:#121722;--panel2:#171e2b;--gold:#d8b15c;--gold2:#f1d48e;--text:#f5f3ee;--muted:#a8afbd;--line:rgba(216,177,92,.2);--red:#8d3038}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(9,11,16,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.08em}.crest{width:42px;height:42px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-weight:950;font-size:13px;transform:skew(-5deg)}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.17em;font-weight:700}.navlinks{display:flex;gap:20px;align-items:center;font-size:13px;color:#d8dbe2}.navlinks a:hover{color:var(--gold2)}.lang{border:1px solid var(--line);background:var(--panel);color:var(--gold2);border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:800;font-size:12px}
-.hero{padding:76px 0 58px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 20%,rgba(145,102,37,.2),transparent 38%),linear-gradient(135deg,#0b0d12 10%,#121824 100%);border-bottom:1px solid var(--line)}
-.hero:after{content:"SPL";position:absolute;right:-18px;bottom:-105px;font-size:clamp(190px,34vw,420px);font-weight:1000;letter-spacing:-.1em;color:rgba(255,255,255,.025);pointer-events:none}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:.24em;font-weight:900;text-transform:uppercase}.hero h1{font-size:clamp(42px,8vw,86px);line-height:.98;letter-spacing:-.055em;margin:17px 0 18px;max-width:780px}.hero h1 span{color:var(--gold)}.lead{max-width:570px;color:#c1c6d0;font-size:16px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:8px;font-weight:850;font-size:13px;border:1px solid var(--gold);background:var(--gold);color:#17130b}.btn.secondary{background:transparent;color:var(--gold2)}.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:42px}.metric strong{display:block;font-size:24px;color:var(--gold2)}.metric span{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:25px}.section-head h2{font-size:clamp(26px,4vw,38px);line-height:1.1;margin:7px 0 0;letter-spacing:-.035em}.section-head p{color:var(--muted);font-size:13px;max-width:430px;margin:0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:20px;min-height:160px}.card .num{font-size:11px;color:var(--gold);letter-spacing:.18em;font-weight:900}.card h3{margin:13px 0 6px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:13px}.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 9px;color:var(--gold2);font-size:10px;font-weight:800;margin-top:15px}
-.seasons{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.season{padding:25px;border-radius:15px;background:linear-gradient(135deg,#1a202c,#10141d);border:1px solid var(--line);position:relative;overflow:hidden}.season:after{content:attr(data-season);position:absolute;right:5px;bottom:-35px;font-size:125px;font-weight:1000;color:rgba(255,255,255,.035)}.season h3{font-size:26px;margin:7px 0}.season p{color:var(--muted);font-size:13px;max-width:400px}.status{font-size:10px;color:#151108;background:var(--gold);padding:5px 9px;border-radius:30px;font-weight:900;letter-spacing:.1em}
-.notice{border:1px dashed rgba(216,177,92,.35);border-radius:12px;padding:18px;color:var(--muted);font-size:13px;background:rgba(216,177,92,.035)}
-.photo-placeholder{min-height:145px;border:1px dashed rgba(216,177,92,.35);border-radius:12px;background:linear-gradient(135deg,#171e2a,#0e121a);display:grid;place-items:center;text-align:center;color:var(--muted);padding:20px;font-size:13px}.photo-placeholder b{display:block;color:var(--gold2);font-size:14px;margin-bottom:4px}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.gold{color:var(--gold2)}
-@media(max-width:760px){.nav{height:64px}.navlinks{display:none}.hero{padding:58px 0 45px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:12px}.seasons{grid-template-columns:1fr}}
-@media(max-width:440px){.grid{grid-template-columns:1fr}.hero-meta{gap:18px}.brand small{font-size:8px}}
+:root{
+  --bg:#090b10;
+  --panel:#121722;
+  --panel2:#171e2b;
+  --gold:#d8b15c;
+  --gold2:#f1d48e;
+  --text:#f5f3ee;
+  --muted:#a8afbd;
+  --line:rgba(216,177,92,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(1120px,92%);margin:auto}
+
+/* Header & 3-Line Hamburger */
+header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  background:rgba(9,11,16,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+.crest{
+  width:42px;
+  height:42px;
+  border:1px solid var(--gold);
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-weight:950;
+  font-size:13px;
+  transform:skew(-5deg);
+}
+.brand small{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  letter-spacing:.17em;
+  font-weight:700;
+}
+.menu-btn{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--gold2);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  cursor:pointer;
+}
+.menu-btn span{
+  width:20px;
+  height:2px;
+  background:var(--gold2);
+  border-radius:2px;
+  display:block;
+}
+
+/* Drawer Menu */
+.drawer-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(4,6,10,.76);
+  backdrop-filter:blur(6px);
+  z-index:50;
+  display:none;
+}
+.drawer-backdrop.open{display:block}
+.drawer{
+  position:fixed;
+  top:0;
+  right:0;
+  width:min(320px,84vw);
+  height:100dvh;
+  background:linear-gradient(180deg,#111622,#090b10);
+  border-left:1px solid var(--line);
+  z-index:60;
+  padding:20px 18px 28px;
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .25s ease;
+  overflow-y:auto;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:14px;
+}
+.drawer-title{
+  font-size:12px;
+  letter-spacing:.2em;
+  color:var(--gold);
+  font-weight:900;
+  text-transform:uppercase;
+}
+.close-btn{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--gold2);
+  cursor:pointer;
+  font-size:18px;
+}
+.menu-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.menu-item{
+  width:100%;
+  text-align:left;
+  padding:13px 15px;
+  border-radius:12px;
+  border:1px solid transparent;
+  background:rgba(255,255,255,.02);
+  color:var(--text);
+  font-weight:750;
+  font-size:14px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.menu-item:hover,.menu-item.active{
+  background:linear-gradient(135deg,rgba(216,177,92,.18),rgba(216,177,92,.06));
+  border-color:var(--line);
+  color:var(--gold2);
+}
+
+/* Views */
+.view{display:none;min-height:calc(100dvh - 70px)}
+.view.active{display:block}
+.page-pad{padding:34px 0 64px}
+.eyebrow{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:.22em;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.page-title{
+  font-size:clamp(28px,5vw,42px);
+  line-height:1.1;
+  margin:8px 0 10px;
+  letter-spacing:-.03em;
+}
+.page-sub{
+  color:var(--muted);
+  font-size:14px;
+  margin:0 0 24px;
+}
+.back-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--gold2);
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+/* Hero / Home */
+.hero{
+  padding:46px 0 40px;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 78% 20%,rgba(145,102,37,.22),transparent 42%),linear-gradient(135deg,#0b0d12 10%,#121824 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero:after{
+  content:"SPL";
+  position:absolute;
+  right:-18px;
+  bottom:-95px;
+  font-size:clamp(180px,34vw,380px);
+  font-weight:1000;
+  letter-spacing:-.1em;
+  color:rgba(255,255,255,.025);
+  pointer-events:none;
+}
+.welcome-title{
+  font-size:clamp(46px,9vw,84px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  margin:0 0 10px;
+  color:var(--gold2);
+}
+.welcome-quote{
+  font-size:clamp(16px,2.6vw,21px);
+  color:var(--text);
+  font-weight:600;
+  margin:0 0 16px;
+}
+.hero-meta{
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+.metric strong{
+  display:block;
+  font-size:26px;
+  color:var(--gold2);
+}
+.metric span{
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.home-blank-zone{
+  padding:48px 0 80px;
+  min-height:280px;
+}
+
+/* Cards & Grids */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.card{
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:20px;
+}
+.card.tap{cursor:pointer;transition:transform .16s ease,border-color .16s ease}
+.card.tap:hover{transform:translateY(-2px);border-color:var(--gold)}
+
+/* Season Boxes */
+.season-box{
+  padding:26px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#1a202c,#10141d);
+  border:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+}
+.season-box:after{
+  content:attr(data-num);
+  position:absolute;
+  right:8px;
+  bottom:-34px;
+  font-size:120px;
+  font-weight:1000;
+  color:rgba(255,255,255,.035);
+}
+.badge{
+  display:inline-block;
+  font-size:10px;
+  color:#151108;
+  background:var(--gold);
+  padding:5px 10px;
+  border-radius:999px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.season-box h3{font-size:26px;margin:10px 0 6px}
+.season-box p{margin:0;color:var(--muted);font-size:13px}
+.center-heading{
+  text-align:center;
+  font-size:clamp(22px,4vw,34px);
+  color:var(--gold2);
+  margin:6px 0 26px;
+  letter-spacing:-.02em;
+}
+.expand-panel{
+  display:none;
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.expand-panel.open{display:block}
+.honour-media{
+  width:110px;
+  height:110px;
+  border-radius:14px;
+  object-fit:cover;
+  border:1px solid var(--gold);
+  background:var(--bg);
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+/* Competitors & Profiles */
+.list-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  cursor:pointer;
+}
+.list-row:hover{border-color:var(--gold)}
+.list-left{display:flex;align-items:center;gap:14px}
+.mini-logo{
+  width:46px;
+  height:46px;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  background:var(--bg);
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-weight:900;
+  font-size:13px;
+  flex-shrink:0;
+}
+.profile-top{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:22px;
+}
+.profile-square{
+  width:156px;
+  height:156px;
+  border-radius:18px;
+  object-fit:cover;
+  border:2px solid var(--gold);
+  background:var(--panel2);
+  display:grid;
+  place-items:center;
+  color:var(--gold2);
+  font-size:28px;
+  font-weight:950;
+  margin-bottom:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.45);
+}
+.tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:20px;
+}
+.tab-btn{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--muted);
+  font-weight:850;
+  font-size:14px;
+  cursor:pointer;
+}
+.tab-btn.active{
+  background:var(--gold);
+  color:#151108;
+  border-color:var(--gold);
+}
+.stars{
+  font-size:26px;
+  color:var(--gold2);
+  letter-spacing:4px;
+  margin-top:6px;
+}
+.info-table{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.info-row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(216,177,92,.14);
+  font-size:14px;
+}
+.info-row:last-child{border-bottom:none;padding-bottom:0}
+.info-row span{color:var(--muted)}
+.info-row strong{color:var(--text);text-align:right}
+
+/* Search Bar */
+.search-box{
+  width:100%;
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  font-size:14px;
+  margin-bottom:18px;
+  outline:none;
+}
+.search-box:focus{border-color:var(--gold)}
+
+/* Moments */
+.moment-thumbs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:14px;
+}
+.moment-thumb{
+  aspect-ratio:1/1;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--bg);
+  object-fit:cover;
+  width:100%;
+  display:grid;
+  place-items:center;
+  color:var(--muted);
+  font-size:11px;
+}
+.media-card img,.media-card video{
+  width:100%;
+  border-radius:12px;
+  border:1px solid var(--line);
+  display:block;
+  background:#000;
+}
+
+/* About */
+.director-card{
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  text-align:center;
+}
+.director-pic{
+  width:100%;
+  aspect-ratio:1/1;
+  border-radius:12px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  background:var(--bg);
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-weight:900;
+  font-size:22px;
+  margin-bottom:12px;
+}
+.director-name{
+  font-size:18px;
+  font-weight:850;
+  color:var(--text);
+  margin:0 0 4px;
+}
+.director-role{
+  font-size:12px;
+  color:var(--gold2);
+  margin:0;
+}
+.dev-card{
+  max-width:340px;
+  margin:36px auto 0;
+  text-align:center;
+}
+.brand-signoff{
+  text-align:center;
+  margin-top:44px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.brand-signoff h2{
+  font-size:32px;
+  letter-spacing:.06em;
+  color:var(--gold2);
+  margin:0 0 6px;
+}
+.brand-signoff p{
+  margin:0 0 22px;
+  color:var(--text);
+  font-size:15px;
+}
+.brand-signoff small{
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* Settings Switch */
+.lang-toggle-row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.lang-opt{
+  flex:1;
+  padding:13px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  font-weight:800;
+  cursor:pointer;
+}
+.lang-opt.active{
+  background:var(--gold);
+  color:#151108;
+  border-color:var(--gold);
+}
+
+@media(max-width:760px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="SPL T10 Home"><span class="crest">SPL</span><span>SPL T10<small>SHADHUBARI PREMIER LEAGUE</small></span></a>
-    <nav class="navlinks" aria-label="Main navigation">
-      <a href="#about" data-en="About" data-bn="পরিচিতি">About</a><a href="#seasons" data-en="Seasons" data-bn="সিজন">Seasons</a><a href="#teams" data-en="Teams" data-bn="দল">Teams</a><a href="#players" data-en="Players" data-bn="খেলোয়াড়">Players</a><a href="#fixtures" data-en="Fixtures" data-bn="সূচি">Fixtures</a><a href="#gallery" data-en="Gallery" data-bn="গ্যালারি">Gallery</a>
-    </nav>
-    <button class="lang" id="langBtn" type="button" aria-label="Switch language">বাংলা</button>
+    <div class="brand" onclick="openView('home')">
+      <span class="crest">SPL</span>
+      <span>SPL T10<small>SHADHUBARI PREMIER LEAGUE</small></span>
+    </div>
+    <button class="menu-btn" id="openMenuBtn" type="button" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </header>
-<main>
-<section class="hero" id="home">
-  <div class="wrap">
-    <div class="eyebrow" data-en="Sherpur, Bogura · Bangladesh" data-bn="শেরপুর, বগুড়া · বাংলাদেশ">Sherpur, Bogura · Bangladesh</div>
-    <h1 data-en="THE GAME.<br><span>THE GLORY.</span>" data-bn="খেলার লড়াই।<br><span>গৌরবের ইতিহাস।</span>">THE GAME.<br><span>THE GLORY.</span></h1>
-    <p class="lead" data-en="The official digital home of Shadhubari Premier League — celebrating teams, players, matches and memories across every season." data-bn="Shadhubari Premier League-এর ডিজিটাল ঠিকানা—প্রতিটি সিজনের দল, খেলোয়াড়, ম্যাচ ও স্মৃতি এক জায়গায়।">The official digital home of Shadhubari Premier League — celebrating teams, players, matches and memories across every season.</p>
-    <div class="actions"><a class="btn" href="#seasons" data-en="EXPLORE SEASONS" data-bn="সিজন দেখুন">EXPLORE SEASONS</a><a class="btn secondary" href="#about" data-en="ABOUT THE LEAGUE" data-bn="লীগ সম্পর্কে">ABOUT THE LEAGUE</a></div>
-    <div class="hero-meta"><div class="metric"><strong>02</strong><span data-en="Completed seasons" data-bn="সম্পন্ন সিজন">Completed seasons</span></div><div class="metric"><strong>03</strong><span data-en="Next planned season" data-bn="পরিকল্পিত পরবর্তী সিজন">Next planned season</span></div><div class="metric"><strong>T10</strong><span data-en="Cricket format" data-bn="ক্রিকেট ফরম্যাট">Cricket format</span></div></div>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer" aria-label="Main Menu">
+  <div class="drawer-head">
+    <span class="drawer-title" data-en="Navigation" data-bn="মেনু তালিকা">Navigation</span>
+    <button class="close-btn" id="closeMenuBtn" type="button" aria-label="Close menu">×</button>
   </div>
-</section>
-<section id="about"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="OUR LEAGUE" data-bn="আমাদের লীগ">OUR LEAGUE</div><h2 data-en="A local league. A lasting legacy." data-bn="স্থানীয় আয়োজন, দীর্ঘস্থায়ী স্মৃতি।">A local league. A lasting legacy.</h2></div><p data-en="A home for the league’s story — from its seasons and teams to the players and moments that make SPL special." data-bn="লীগের সিজন, দল, খেলোয়াড় এবং বিশেষ মুহূর্তগুলোর ইতিহাস সংরক্ষণের একটি ঠিকানা।">A home for the league’s story — from its seasons and teams to the players and moments that make SPL special.</p></div><div class="notice" data-en="Official league information will be added after verification. This first version uses clearly marked placeholders and does not invent teams, players, scores or tournament records." data-bn="যাচাই করার পর লীগের প্রকৃত তথ্য যোগ করা হবে। এই প্রথম সংস্করণে কোনো দল, খেলোয়াড়, স্কোর বা টুর্নামেন্টের রেকর্ড বানিয়ে দেওয়া হয়নি।">Official league information will be added after verification. This first version uses clearly marked placeholders and does not invent teams, players, scores or tournament records.</div></div></section>
-<section id="seasons"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="TOURNAMENT HISTORY" data-bn="টুর্নামেন্টের ইতিহাস">TOURNAMENT HISTORY</div><h2 data-en="Every season. One home." data-bn="প্রতিটি সিজন, একই ঠিকানায়।">Every season. One home.</h2></div><p data-en="Explore the league archive. Detailed records will be published from the information you provide." data-bn="লীগের আর্কাইভ দেখুন। তোমার দেওয়া তথ্য থেকে বিস্তারিত রেকর্ড প্রকাশ করা হবে।">Explore the league archive. Detailed records will be published from the information you provide.</p></div><div class="seasons"><article class="season" data-season="01"><span class="status" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span><h3>Season 01</h3><p data-en="The first chapter of Shadhubari Premier League. Teams, fixtures, results and champions will be added after receiving the official records." data-bn="Shadhubari Premier League-এর প্রথম অধ্যায়। অফিসিয়াল তথ্য পাওয়ার পর দল, সূচি, ফলাফল ও চ্যাম্পিয়ন যুক্ত করা হবে।">The first chapter of Shadhubari Premier League. Teams, fixtures, results and champions will be added after receiving the official records.</p></article><article class="season" data-season="02"><span class="status" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span><h3>Season 02</h3><p data-en="The second chapter of the league. The full season archive will be built from your tournament data." data-bn="লীগের দ্বিতীয় অধ্যায়। তোমার দেওয়া টুর্নামেন্টের তথ্য দিয়ে পূর্ণ আর্কাইভ তৈরি করা হবে।">The second chapter of the league. The full season archive will be built from your tournament data.</p></article></div></div></section>
-<section id="teams"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="THE COMPETITORS" data-bn="প্রতিযোগী দল">THE COMPETITORS</div><h2 data-en="Teams of SPL" data-bn="SPL-এর দলসমূহ">Teams of SPL</h2></div><p data-en="Team crests, squad photos, captains and season appearances." data-bn="দলের লোগো, স্কোয়াডের ছবি, অধিনায়ক ও সিজনভিত্তিক অংশগ্রহণ।">Team crests, squad photos, captains and season appearances.</p></div><div class="photo-placeholder"><div><b data-en="TEAM PROFILES COMING SOON" data-bn="দলের প্রোফাইল শিগগিরই">TEAM PROFILES COMING SOON</b><span data-en="Official team names and photos will be added here." data-bn="এখানে দলের আসল নাম ও ছবি যুক্ত করা হবে।">Official team names and photos will be added here.</span></div></div></div></section>
-<section id="players"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="THE PLAYERS" data-bn="খেলোয়াড়">THE PLAYERS</div><h2 data-en="Meet the players" data-bn="খেলোয়াড়দের সঙ্গে পরিচিত হোন">Meet the players</h2></div><p data-en="Individual player pages with portraits, team association and verified details." data-bn="প্রত্যেক খেলোয়াড়ের ছবি, দলের পরিচয় এবং যাচাই করা তথ্যসহ আলাদা প্রোফাইল।">Individual player pages with portraits, team association and verified details.</p></div><div class="photo-placeholder"><div><b data-en="PLAYER PROFILES COMING SOON" data-bn="খেলোয়াড়দের প্রোফাইল শিগগিরই">PLAYER PROFILES COMING SOON</b><span data-en="Player names and original photos will be added after collection." data-bn="খেলোয়াড়দের নাম ও নিজস্ব ছবি সংগ্রহের পর যোগ করা হবে।">Player names and original photos will be added after collection.</span></div></div></div></section>
-<section id="fixtures"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="MATCH CENTRE" data-bn="ম্যাচ সেন্টার">MATCH CENTRE</div><h2 data-en="Fixtures & results" data-bn="ম্যাচের সূচি ও ফলাফল">Fixtures & results</h2></div><p data-en="Pre-published schedules and final match results — no live-score operation required." data-bn="আগে থেকে প্রকাশিত সময়সূচি ও ম্যাচ শেষে চূড়ান্ত ফলাফল—লাইভ স্কোর পরিচালনার প্রয়োজন নেই।">Pre-published schedules and final match results — no live-score operation required.</p></div><div class="notice" data-en="Fixtures and results will appear here when the season data is added." data-bn="সিজনের তথ্য যোগ করা হলে এখানে ম্যাচের সূচি ও ফলাফল দেখা যাবে।">Fixtures and results will appear here when the season data is added.</div></div></section>
-<section id="gallery"><div class="wrap"><div class="section-head"><div><div class="eyebrow" data-en="CAPTURED MOMENTS" data-bn="স্মরণীয় মুহূর্ত">CAPTURED MOMENTS</div><h2 data-en="The SPL gallery" data-bn="SPL গ্যালারি">The SPL gallery</h2></div><p data-en="Tournament photography, team celebrations, awards and special moments." data-bn="টুর্নামেন্টের ছবি, দলের উদযাপন, পুরস্কার ও বিশেষ মুহূর্ত।">Tournament photography, team celebrations, awards and special moments.</p></div><div class="photo-placeholder"><div><b data-en="PHOTO GALLERY COMING SOON" data-bn="ছবির গ্যালারি শিগগিরই">PHOTO GALLERY COMING SOON</b><span data-en="Your original tournament photos will be featured here." data-bn="তোমাদের তোলা টুর্নামেন্টের ছবি এখানে প্রকাশ করা হবে।">Your original tournament photos will be featured here.</span></div></div></div></section>
+  <nav class="menu-list" id="menuList">
+    <button class="menu-item active" data-view="home" data-en="Home" data-bn="হোম">Home</button>
+    <button class="menu-item" data-view="history" data-en="Tournament History" data-bn="টুর্নামেন্টের ইতিহাস">Tournament History</button>
+    <button class="menu-item" data-view="competitors" data-en="The Competitors" data-bn="প্রতিযোগী দলসমূহ">The Competitors</button>
+    <button class="menu-item" data-view="legends" data-en="The Legend Players" data-bn="লিজেন্ড খেলোয়াড়বৃন্দ">The Legend Players</button>
+    <button class="menu-item" data-view="moments" data-en="Moments" data-bn="স্মরণীয় মুহূর্ত">Moments</button>
+    <button class="menu-item" data-view="news" data-en="News" data-bn="সংবাদ">News</button>
+    <button class="menu-item" data-view="settings" data-en="Settings" data-bn="সেটিংস">Settings</button>
+    <button class="menu-item" data-view="about" data-en="About" data-bn="পরিচিতি">About</button>
+  </nav>
+</aside>
+
+<main>
+  <!-- 1. HOME -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <div class="wrap">
+        <h1 class="welcome-title" data-en="Welcome" data-bn="স্বাগতম">Welcome</h1>
+        <p class="welcome-quote" data-en="❝to The Official Digital Zone of SPL Cricket League.❞" data-bn="❝SPL ক্রিকেট লীগের অফিসিয়াল ডিজিটাল জোনে।❞">❝to The Official Digital Zone of SPL Cricket League.❞</p>
+        <div class="eyebrow" data-en="Sherpur, Bogura · Bangladesh" data-bn="শেরপুর, বগুড়া · বাংলাদেশ">Sherpur, Bogura · Bangladesh</div>
+
+        <div class="hero-meta">
+          <div class="metric">
+            <strong>02</strong>
+            <span data-en="Completed seasons" data-bn="সম্পন্ন সিজন">Completed seasons</span>
+          </div>
+          <div class="metric">
+            <strong>03</strong>
+            <span data-en="Next planned season" data-bn="পরিকল্পিত পরবর্তী সিজন">Next planned season</span>
+          </div>
+          <div class="metric">
+            <strong>T10</strong>
+            <span data-en="Cricket format" data-bn="ক্রিকেট ফরম্যাট">Cricket format</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Blank area reserved for future Tournament Trailer Video & Entry Form -->
+    <div class="wrap home-blank-zone" id="homeFutureZone"></div>
+  </section>
+
+  <!-- 2. TOURNAMENT HISTORY -->
+  <section class="view" id="view-history">
+    <div class="wrap page-pad">
+      <div id="historyListScreen">
+        <div class="eyebrow" data-en="ARCHIVE" data-bn="আর্কাইভ">ARCHIVE</div>
+        <h2 class="page-title" data-en="Tournament History" data-bn="টুর্নামেন্টের ইতিহাস">Tournament History</h2>
+        <p class="page-sub" data-en="Select a season box to view Champions, Runners-up, and Player of the Tournament." data-bn="চ্যাম্পিয়ন, রানার্স-আপ ও টুর্নামেন্ট সেরা খেলোয়াড় দেখতে সিজনে চাপ দিন।">Select a season box to view Champions, Runners-up, and Player of the Tournament.</p>
+
+        <div class="grid-2">
+          <article class="season-box" data-num="01" onclick="openSeasonDetail('S1')">
+            <span class="badge" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span>
+            <h3>Season 01</h3>
+            <p>SPL T10 2024-2025</p>
+          </article>
+          <article class="season-box" data-num="02" onclick="openSeasonDetail('S2')">
+            <span class="badge" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span>
+            <h3>Season 02</h3>
+            <p>SPL T10 2025-2026</p>
+          </article>
+        </div>
+      </div>
+
+      <div id="historyDetailScreen" style="display:none">
+        <button class="back-btn" type="button" onclick="closeSeasonDetail()">← <span data-en="Back to Seasons" data-bn="সিজনে ফিরে যান">Back to Seasons</span></button>
+        <h2 class="center-heading" id="seasonDetailHeading">SPL T10 2024-2025 Season 1</h2>
+        <div class="stack" id="seasonHonoursContainer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. THE COMPETITORS -->
+  <section class="view" id="view-competitors">
+    <div class="wrap page-pad">
+      <div id="teamsListScreen">
+        <div class="eyebrow" data-en="FRANCHISES" data-bn="দলসমূহ">FRANCHISES</div>
+        <h2 class="page-title" data-en="The Competitors" data-bn="প্রতিযোগী দলসমূহ">The Competitors</h2>
+        <p class="page-sub" data-en="Tap on a team to explore its profile, championships, and squad." data-bn="দলের প্রোফাইল, চ্যাম্পিয়নশিপ ও খেলোয়াড়দের দেখতে দলে চাপ দিন।">Tap on a team to explore its profile, championships, and squad.</p>
+        <div class="stack" id="teamsListContainer"></div>
+      </div>
+
+      <div id="teamProfileScreen" style="display:none">
+        <button class="back-btn" type="button" onclick="closeTeamProfile()">← <span data-en="Back to Teams" data-bn="দলসমূহে ফিরে যান">Back to Teams</span></button>
+        <div class="profile-top">
+          <div id="teamProfileLogoWrap"></div>
+          <h2 class="page-title" id="teamProfileName" style="margin:0">Team Name</h2>
+          <span class="eyebrow" id="teamProfileCode" style="margin-top:4px">CODE</span>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" id="teamTabOverviewBtn" type="button" onclick="switchTeamTab('overview')">Overview</button>
+          <button class="tab-btn" id="teamTabPlayersBtn" type="button" onclick="switchTeamTab('players')">Players</button>
+        </div>
+
+        <div id="teamOverviewPane"></div>
+        <div id="teamPlayersPane" style="display:none"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THE LEGEND PLAYERS -->
+  <section class="view" id="view-legends">
+    <div class="wrap page-pad">
+      <div class="eyebrow" data-en="HALL OF PLAYERS" data-bn="খেলোয়াড় তালিকা">HALL OF PLAYERS</div>
+      <h2 class="page-title" data-en="The Legend Players" data-bn="লিজেন্ড খেলোয়াড়বৃন্দ">The Legend Players</h2>
+      <p class="page-sub" data-en="Search any player by name and tap to open their full profile." data-bn="নাম লিখে যেকোনো খেলোয়াড় খুঁজুন এবং প্রোফাইল দেখতে ট্যাপ করুন।">Search any player by name and tap to open their full profile.</p>
+      <input class="search-box" id="legendSearchInput" type="search" placeholder="Search player by name..." oninput="renderLegendPlayers()">
+      <div class="stack" id="legendPlayersContainer"></div>
+    </div>
+  </section>
+
+  <!-- SHARED PLAYER PROFILE VIEW -->
+  <section class="view" id="view-player-profile">
+    <div class="wrap page-pad">
+      <button class="back-btn" type="button" onclick="goBackFromPlayer()">← <span data-en="Back" data-bn="ফিরে যান">Back</span></button>
+      <div class="profile-top">
+        <div id="playerProfilePicWrap"></div>
+        <h2 class="page-title" id="playerProfileName" style="margin:0">Player Name</h2>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" id="playerTabOverviewBtn" type="button" onclick="switchPlayerTab('overview')">Overview</button>
+        <button class="tab-btn" id="playerTabTeamsBtn" type="button" onclick="switchPlayerTab('teams')">Teams</button>
+      </div>
+
+      <div id="playerOverviewPane"></div>
+      <div id="playerTeamsPane" style="display:none"></div>
+    </div>
+  </section>
+
+  <!-- 5. MOMENTS -->
+  <section class="view" id="view-moments">
+    <div class="wrap page-pad">
+      <div id="momentsSeasonList">
+        <div class="eyebrow" data-en="MEMORIES" data-bn="স্মৃতি">MEMORIES</div>
+        <h2 class="page-title" data-en="Moments" data-bn="স্মরণীয় মুহূর্ত">Moments</h2>
+        <p class="page-sub" data-en="Tap a season box to open the full photo and video gallery." data-bn="ছবি ও ভিডিও গ্যালারি খুলতে সিজনের বক্সে ট্যাপ করুন।">Tap a season box to open the full photo and video gallery.</p>
+        <div class="grid-2" id="momentsSeasonCards"></div>
+      </div>
+
+      <div id="momentsGalleryScreen" style="display:none">
+        <button class="back-btn" type="button" onclick="closeMomentsGallery()">← <span data-en="Back to Moments" data-bn="মোমেন্টসে ফিরে যান">Back to Moments</span></button>
+        <h2 class="page-title" id="momentsGalleryTitle">Season 1 Gallery</h2>
+        <div class="grid-3" id="momentsGalleryGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. NEWS -->
+  <section class="view" id="view-news">
+    <div class="wrap page-pad">
+      <div class="eyebrow" data-en="UPDATES" data-bn="আপডেট">UPDATES</div>
+      <h2 class="page-title" data-en="News" data-bn="সংবাদ">News</h2>
+      <div class="card" id="newsContainer">
+        <p style="margin:0;color:var(--muted)" data-en="No news updates right now. Official announcements and tournament bulletins will appear here soon." data-bn="এই মুহূর্তে কোনো নতুন সংবাদ নেই। অফিসিয়াল ঘোষণা ও টুর্নামেন্টের আপডেট শিগগিরই এখানে প্রকাশিত হবে।">No news updates right now. Official announcements and tournament bulletins will appear here soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SETTINGS -->
+  <section class="view" id="view-settings">
+    <div class="wrap page-pad">
+      <div class="eyebrow" data-en="PREFERENCES" data-bn="পছন্দসমূহ">PREFERENCES</div>
+      <h2 class="page-title" data-en="Settings" data-bn="সেটিংস">Settings</h2>
+      <div class="card">
+        <strong style="font-size:16px" data-en="Language / ভাষা" data-bn="ভাষা / Language">Language / ভাষা</strong>
+        <p style="margin:6px 0 0;color:var(--muted);font-size:13px" data-en="Choose your preferred display language for SPL T10." data-bn="SPL T10 দেখার জন্য আপনার পছন্দের ভাষা নির্বাচন করুন।">Choose your preferred display language for SPL T10.</p>
+        <div class="lang-toggle-row">
+          <button class="lang-opt active" id="optEn" type="button" onclick="setLanguage('en')">English</button>
+          <button class="lang-opt" id="optBn" type="button" onclick="setLanguage('bn')">বাংলা</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. ABOUT -->
+  <section class="view" id="view-about">
+    <div class="wrap page-pad">
+      <div class="eyebrow" data-en="LEADERSHIP" data-bn="পরিচালনা পর্ষদ">LEADERSHIP</div>
+      <h2 class="page-title" data-en="Meet Director Panel" data-bn="Meet Director Panel">Meet Director Panel</h2>
+      <div class="grid-3" id="directorPanelGrid" style="margin-top:20px"></div>
+
+      <div class="director-card dev-card" id="developerCard">
+        <div class="eyebrow" style="margin-bottom:12px">Developed by...</div>
+        <div class="director-pic">SN</div>
+        <h3 class="director-name">Shahria Nafiz Masum</h3>
+        <p class="director-role">Developer</p>
+      </div>
+
+      <div class="brand-signoff">
+        <h2>SPL T10</h2>
+        <p>❝Shoot to Your Goal❞</p>
+        <small>Copyright by SPL T10 Authority</small>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap foot"><span><b class="gold">SPL T10</b> · Shadhubari Premier League</span><span>Sherpur, Bogura, Bangladesh</span><span>© <span id="year"></span> SPL T10</span></div></footer>
+
 <script>
-const btn=document.getElementById('langBtn');let lang='en';
-function setLanguage(next){lang=next;document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-bn]').forEach(el=>{el.innerHTML=el.dataset[lang]});btn.textContent=lang==='en'?'বাংলা':'English';}
-btn.addEventListener('click',()=>setLanguage(lang==='en'?'bn':'en'));
-document.getElementById('year').textContent=new Date().getFullYear();
+const API_URL = "https://script.google.com/macros/s/AKfycbxga1GsR5689bz8PJhTp-VOXRhhS3LlQnXQs2myGCNncj0WI0MORQxqbqolSQV0bWk/exec";
+
+let currentLang = 'en';
+let previousViewBeforePlayer = 'competitors';
+let selectedTeamId = null;
+let selectedPlayerId = null;
+
+// Default structured data (automatically enriched when Google Sheet has matching rows)
+const state = {
+  seasons: {
+    S1: {
+      heading: "SPL T10 2024-2025 Season 1",
+      champion: { name: "Season 01 Champions", logo: "", details: "Official champion record and match summary will be updated here." },
+      runnerUp: { name: "Season 01 Runners-up", logo: "", details: "Official runners-up record and summary will be updated here." },
+      pot: { name: "Player of the Tournament", photo: "", details: "Season 01 standout performer record will be updated here." }
+    },
+    S2: {
+      heading: "SPL T10 2025-2026 Season 2",
+      champion: { name: "Season 02 Champions", logo: "", details: "Official champion record and match summary will be updated here." },
+      runnerUp: { name: "Season 02 Runners-up", logo: "", details: "Official runners-up record and summary will be updated here." },
+      pot: { name: "Player of the Tournament", photo: "", details: "Season 02 standout performer record will be updated here." }
+    }
+  },
+  teams: [
+    {
+      id: "T1",
+      name: "SPL Franchise 01",
+      code: "SF1",
+      logo: "",
+      details: "Official franchise representing Shadhubari Premier League in Sherpur, Bogura.",
+      cups: 1
+    },
+    {
+      id: "T2",
+      name: "SPL Franchise 02",
+      code: "SF2",
+      logo: "",
+      details: "Competitive squad participating in SPL T10 seasons.",
+      cups: 1
+    }
+  ],
+  players: [
+    {
+      id: "P1",
+      name: "SPL Player 01",
+      photo: "",
+      battingHand: "Right Hand",
+      bowlingHand: "Right Arm Medium",
+      from: "Sherpur, Bogura",
+      teamHistory: [
+        { teamId: "T1", teamName: "SPL Franchise 01", seasons: "Season 01, Season 02" }
+      ]
+    }
+  ],
+  moments: {
+    S1: [
+      { type: "image", url: "", caption: "Season 01 Opening & Highlights" },
+      { type: "image", url: "", caption: "Season 01 Match Action" },
+      { type: "image", url: "", caption: "Season 01 Trophy Celebration" }
+    ],
+    S2: [
+      { type: "image", url: "", caption: "Season 02 Opening Ceremony" },
+      { type: "image", url: "", caption: "Season 02 Best Moments" },
+      { type: "image", url: "", caption: "Season 02 Final Awards" }
+    ]
+  },
+  directors: [
+    { name: "Director Name 01", role: "Founder / Director", photo: "" },
+    { name: "Director Name 02", role: "Director", photo: "" },
+    { name: "Director Name 03", role: "Director", photo: "" }
+  ]
+};
+
+function esc(v) {
+  return String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* Drawer Navigation */
+const drawer = document.getElementById('drawer');
+const backdrop = document.getElementById('drawerBackdrop');
+
+function toggleDrawer(open) {
+  drawer.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+}
+document.getElementById('openMenuBtn').addEventListener('click', () => toggleDrawer(true));
+document.getElementById('closeMenuBtn').addEventListener('click', () => toggleDrawer(false));
+backdrop.addEventListener('click', () => toggleDrawer(false));
+
+document.querySelectorAll('.menu-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    openView(btn.dataset.view);
+    toggleDrawer(false);
+  });
+});
+
+function openView(viewName) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const target = document.getElementById('view-' + viewName);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.menu-item').forEach(m => {
+    m.classList.toggle('active', m.dataset.view === viewName);
+  });
+
+  if (viewName === 'history') closeSeasonDetail();
+  if (viewName === 'competitors') closeTeamProfile();
+  if (viewName === 'moments') closeMomentsGallery();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Language Switch */
+function setLanguage(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-en][data-bn]').forEach(el => {
+    el.innerHTML = el.dataset[lang];
+  });
+  document.getElementById('optEn').classList.toggle('active', lang === 'en');
+  document.getElementById('optBn').classList.toggle('active', lang === 'bn');
+}
+
+/* 2. Tournament History */
+function openSeasonDetail(seasonKey) {
+  const s = state.seasons[seasonKey];
+  if (!s) return;
+  document.getElementById('historyListScreen').style.display = 'none';
+  document.getElementById('historyDetailScreen').style.display = 'block';
+  document.getElementById('seasonDetailHeading').textContent = s.heading;
+
+  const items = [
+    { key: 'champ', label: 'Champions', data: s.champion },
+    { key: 'runner', label: 'Runners-up', data: s.runnerUp },
+    { key: 'pot', label: 'Player of the Tournament', data: s.pot }
+  ];
+
+  document.getElementById('seasonHonoursContainer').innerHTML = items.map(item => `
+    <article class="card tap" onclick="toggleHonour('${item.key}')">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div class="eyebrow">${esc(item.label)}</div>
+          <h3 style="margin:6px 0 0;font-size:20px">${esc(item.data.name)}</h3>
+        </div>
+        <span style="color:var(--gold2);font-weight:900">▼</span>
+      </div>
+      <div class="expand-panel" id="honour-${item.key}">
+        ${item.data.logo || item.data.photo
+          ? `<img class="honour-media" src="${esc(item.data.logo || item.data.photo)}" alt="${esc(item.data.name)}">`
+          : `<div class="honour-media">SPL</div>`}
+        <p style="margin:0;color:var(--muted);font-size:14px">${esc(item.data.details)}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+function toggleHonour(key) {
+  const el = document.getElementById('honour-' + key);
+  if (el) el.classList.toggle('open');
+}
+
+function closeSeasonDetail() {
+  document.getElementById('historyDetailScreen').style.display = 'none';
+  document.getElementById('historyListScreen').style.display = 'block';
+}
+
+/* 3. The Competitors */
+function renderTeamsList() {
+  document.getElementById('teamsListContainer').innerHTML = state.teams.map(t => `
+    <div class="list-row" onclick="openTeamProfile('${esc(t.id)}')">
+      <div class="list-left">
+        ${t.logo ? `<img class="mini-logo" src="${esc(t.logo)}" alt="${esc(t.name)}">` : `<div class="mini-logo">${esc(t.code || 'SPL')}</div>`}
+        <div>
+          <strong style="font-size:16px;display:block">${esc(t.name)}</strong>
+          <small style="color:var(--muted)">${esc(t.code || '')}</small>
+        </div>
+      </div>
+      <span style="color:var(--gold2);font-weight:800">→</span>
+    </div>
+  `).join('');
+}
+
+function openTeamProfile(teamId) {
+  selectedTeamId = teamId;
+  const team = state.teams.find(t => t.id === teamId);
+  if (!team) return;
+
+  document.getElementById('teamsListScreen').style.display = 'none';
+  document.getElementById('teamProfileScreen').style.display = 'block';
+  document.getElementById('teamProfileName').textContent = team.name;
+  document.getElementById('teamProfileCode').textContent = team.code || 'SPL TEAM';
+
+  document.getElementById('teamProfileLogoWrap').innerHTML = team.logo
+    ? `<img class="profile-square" src="${esc(team.logo)}" alt="${esc(team.name)}">`
+    : `<div class="profile-square">${esc(team.code || 'SPL')}</div>`;
+
+  const stars = Number(team.cups || 0) > 0 ? '★'.repeat(Number(team.cups)) : '—';
+  document.getElementById('teamOverviewPane').innerHTML = `
+    <div class="stack">
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:8px">Details</div>
+        <p style="margin:0;color:var(--text);font-size:14px">${esc(team.details || 'Official SPL T10 franchise.')}</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Champ</div>
+        <div class="stars">${stars}</div>
+      </div>
+    </div>
+  `;
+
+  const teamPlayers = state.players.filter(p =>
+    (p.teamHistory || []).some(h => h.teamId === team.id || h.teamName === team.name)
+  );
+
+  document.getElementById('teamPlayersPane').innerHTML = teamPlayers.length
+    ? `<div class="stack">` + teamPlayers.map(p => `
+        <div class="list-row" onclick="openPlayerProfile('${esc(p.id)}', 'competitors')">
+          <div class="list-left">
+            ${p.photo ? `<img class="mini-logo" src="${esc(p.photo)}" alt="${esc(p.name)}">` : `<div class="mini-logo">${esc(p.name.slice(0,2).toUpperCase())}</div>`}
+            <div>
+              <strong style="font-size:15px;display:block">${esc(p.name)}</strong>
+              <small style="color:var(--muted)">${esc(p.from || 'SPL Player')}</small>
+            </div>
+          </div>
+          <span style="color:var(--gold2);font-weight:800">→</span>
+        </div>
+      `).join('') + `</div>`
+    : `<div class="card"><p style="margin:0;color:var(--muted)">No players listed under this team yet.</p></div>`;
+
+  switchTeamTab('overview');
+}
+
+function switchTeamTab(tab) {
+  const isOverview = tab === 'overview';
+  document.getElementById('teamTabOverviewBtn').classList.toggle('active', isOverview);
+  document.getElementById('teamTabPlayersBtn').classList.toggle('active', !isOverview);
+  document.getElementById('teamOverviewPane').style.display = isOverview ? 'block' : 'none';
+  document.getElementById('teamPlayersPane').style.display = isOverview ? 'none' : 'block';
+}
+
+function closeTeamProfile() {
+  document.getElementById('teamProfileScreen').style.display = 'none';
+  document.getElementById('teamsListScreen').style.display = 'block';
+}
+
+/* 4. The Legend Players & Shared Player Profile */
+function renderLegendPlayers() {
+  const query = (document.getElementById('legendSearchInput').value || '').trim().toLowerCase();
+  const filtered = state.players.filter(p => p.name.toLowerCase().includes(query));
+
+  document.getElementById('legendPlayersContainer').innerHTML = filtered.length
+    ? filtered.map(p => `
+        <div class="list-row" onclick="openPlayerProfile('${esc(p.id)}', 'legends')">
+          <div class="list-left">
+            ${p.photo ? `<img class="mini-logo" src="${esc(p.photo)}" alt="${esc(p.name)}">` : `<div class="mini-logo">${esc(p.name.slice(0,2).toUpperCase())}</div>`}
+            <div>
+              <strong style="font-size:16px;display:block">${esc(p.name)}</strong>
+              <small style="color:var(--muted)">${esc(p.from || '')}</small>
+            </div>
+          </div>
+          <span style="color:var(--gold2);font-weight:800">→</span>
+        </div>
+      `).join('')
+    : `<div class="card"><p style="margin:0;color:var(--muted)">No matching player found.</p></div>`;
+}
+
+function openPlayerProfile(playerId, sourceView) {
+  selectedPlayerId = playerId;
+  previousViewBeforePlayer = sourceView || 'legends';
+  const player = state.players.find(p => p.id === playerId);
+  if (!player) return;
+
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-player-profile').classList.add('active');
+
+  document.getElementById('playerProfileName').textContent = player.name;
+  document.getElementById('playerProfilePicWrap').innerHTML = player.photo
+    ? `<img class="profile-square" src="${esc(player.photo)}" alt="${esc(player.name)}">`
+    : `<div class="profile-square">${esc(player.name.slice(0,2).toUpperCase())}</div>`;
+
+  document.getElementById('playerOverviewPane').innerHTML = `
+    <div class="card">
+      <div class="info-table">
+        <div class="info-row"><span>Name</span><strong>${esc(player.name)}</strong></div>
+        <div class="info-row"><span>Batting hand</span><strong>${esc(player.battingHand || '-')}</strong></div>
+        <div class="info-row"><span>Bowling Hand</span><strong>${esc(player.bowlingHand || '-')}</strong></div>
+        <div class="info-row"><span>From</span><strong>${esc(player.from || '-')}</strong></div>
+      </div>
+    </div>
+  `;
+
+  const history = player.teamHistory || [];
+  document.getElementById('playerTeamsPane').innerHTML = history.length
+    ? `<div class="stack">` + history.map(h => `
+        <div class="card">
+          <strong style="font-size:17px;color:var(--gold2);display:block;margin-bottom:6px">${esc(h.teamName)}</strong>
+          <span style="font-size:13px;color:var(--muted)">Seasons: <strong style="color:var(--text)">${esc(h.seasons)}</strong></span>
+        </div>
+      `).join('') + `</div>`
+    : `<div class="card"><p style="margin:0;color:var(--muted)">No team history recorded yet.</p></div>`;
+
+  switchPlayerTab('overview');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchPlayerTab(tab) {
+  const isOverview = tab === 'overview';
+  document.getElementById('playerTabOverviewBtn').classList.toggle('active', isOverview);
+  document.getElementById('playerTabTeamsBtn').classList.toggle('active', !isOverview);
+  document.getElementById('playerOverviewPane').style.display = isOverview ? 'block' : 'none';
+  document.getElementById('playerTeamsPane').style.display = isOverview ? 'none' : 'block';
+}
+
+function goBackFromPlayer() {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-' + previousViewBeforePlayer).classList.add('active');
+}
+
+/* 5. Moments */
+function renderMomentsCards() {
+  const seasons = [
+    { key: 'S1', label: 'Season 1' },
+    { key: 'S2', label: 'Season 2' }
+  ];
+
+  document.getElementById('momentsSeasonCards').innerHTML = seasons.map(s => {
+    const items = (state.moments[s.key] || []).slice(0, 3);
+    return `
+      <article class="card tap" onclick="openMomentsGallery('${s.key}', '${s.label}')">
+        <h3 style="margin:0;font-size:22px;color:var(--gold2)">${s.label}</h3>
+        <div class="moment-thumbs">
+          ${items.map(m => m.url
+            ? `<img class="moment-thumb" src="${esc(m.url)}" alt="${esc(m.caption)}">`
+            : `<div class="moment-thumb">SPL</div>`
+          ).join('')}
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function openMomentsGallery(seasonKey, label) {
+  document.getElementById('momentsSeasonList').style.display = 'none';
+  document.getElementById('momentsGalleryScreen').style.display = 'block';
+  document.getElementById('momentsGalleryTitle').textContent = label + ' Gallery';
+
+  const items = state.moments[seasonKey] || [];
+  document.getElementById('momentsGalleryGrid').innerHTML = items.map(m => `
+    <article class="card media-card">
+      ${m.type === 'video' && m.url
+        ? `<video controls src="${esc(m.url)}"></video>`
+        : m.url
+          ? `<img src="${esc(m.url)}" alt="${esc(m.caption)}">`
+          : `<div class="moment-thumb" style="aspect-ratio:16/10">Photo / Video Slot</div>`}
+      <p style="margin:10px 0 0;font-size:13px;color:var(--text)">${esc(m.caption || '')}</p>
+    </article>
+  `).join('');
+}
+
+function closeMomentsGallery() {
+  document.getElementById('momentsGalleryScreen').style.display = 'none';
+  document.getElementById('momentsSeasonList').style.display = 'block';
+}
+
+/* 8. About */
+function renderDirectors() {
+  document.getElementById('directorPanelGrid').innerHTML = state.directors.map(d => `
+    <article class="director-card">
+      ${d.photo
+        ? `<img class="director-pic" src="${esc(d.photo)}" alt="${esc(d.name)}">`
+        : `<div class="director-pic">${esc(d.name.slice(0,2).toUpperCase())}</div>`}
+      <h3 class="director-name">${esc(d.name)}</h3>
+      <p class="director-role">${esc(d.role)}</p>
+    </article>
+  `).join('');
+}
+
+/* Sync with Google Sheets API if records exist */
+async function syncWithSheet() {
+  try {
+    const res = await fetch(API_URL, { cache: 'no-store' });
+    const json = await res.json();
+    if (!json.ok || !json.data) return;
+    const d = json.data;
+
+    if (Array.isArray(d.Seasons) && d.Seasons.length) {
+      d.Seasons.forEach(row => {
+        const key = String(row.SeasonID || '').toUpperCase();
+        if (state.seasons[key]) {
+          if (row.Champion) state.seasons[key].champion.name = row.Champion;
+          if (row.RunnerUp) state.seasons[key].runnerUp.name = row.RunnerUp;
+          if (row.PlayerOfTournament) state.seasons[key].pot.name = row.PlayerOfTournament;
+          if (row.Summary) state.seasons[key].champion.details = row.Summary;
+        }
+      });
+    }
+
+    if (Array.isArray(d.Teams) && d.Teams.length) {
+      state.teams = d.Teams.map((t, i) => ({
+        id: t.TeamID || 'T' + (i + 1),
+        name: t.TeamName || 'Team',
+        code: t.ShortCode || 'SPL',
+        logo: t.LogoURL || '',
+        details: t.Overview || 'Official SPL T10 franchise.',
+        cups: Number(t.Cups || 0)
+      }));
+    }
+
+    if (Array.isArray(d.Players) && d.Players.length) {
+      state.players = d.Players.map((p, i) => ({
+        id: p.PlayerID || 'P' + (i + 1),
+        name: p.PlayerName || 'Player',
+        photo: p.PhotoURL || '',
+        battingHand: p.BattingStyle || '-',
+        bowlingHand: p.BowlingStyle || '-',
+        from: p.From || 'Sherpur, Bogura',
+        teamHistory: p.TeamName ? [{ teamId: p.TeamID || '', teamName: p.TeamName, seasons: p.SeasonID || 'Season 01' }] : []
+      }));
+    }
+
+    if (Array.isArray(d.Gallery) && d.Gallery.length) {
+      const s1 = d.Gallery.filter(g => String(g.SeasonID).toUpperCase() === 'S1');
+      const s2 = d.Gallery.filter(g => String(g.SeasonID).toUpperCase() === 'S2');
+      if (s1.length) state.moments.S1 = s1.map(g => ({ type: g.Type || 'image', url: g.ImageURL || '', caption: g.Caption || '' }));
+      if (s2.length) state.moments.S2 = s2.map(g => ({ type: g.Type || 'image', url: g.ImageURL || '', caption: g.Caption || '' }));
+    }
+
+    if (Array.isArray(d.News) && d.News.length) {
+      document.getElementById('newsContainer').innerHTML = d.News.map(n => `
+        <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+          <strong style="color:var(--gold2)">${esc(n.Title || '')}</strong>
+          <p style="margin:4px 0 0;color:var(--muted);font-size:13px">${esc(n.Description || '')}</p>
+        </div>
+      `).join('');
+    }
+
+    renderTeamsList();
+    renderLegendPlayers();
+    renderMomentsCards();
+  } catch (err) {
+    console.warn('Using local defaults:', err);
+  }
+}
+
+// Initial Render
+renderTeamsList();
+renderLegendPlayers();
+renderMomentsCards();
+renderDirectors();
+syncWithSheet();
 </script>
 </body>
-</html>
+  </html>
