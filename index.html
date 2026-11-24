@@ -495,6 +495,15 @@ header{
   font-size:22px;
   margin-bottom:12px;
 }
+.dev-square-pic{
+  width:156px;
+  height:156px;
+  margin:0 auto 12px;
+  border-radius:16px;
+  object-fit:cover;
+  border:2px solid var(--gold);
+  display:block;
+}
 .director-name{
   font-size:18px;
   font-weight:850;
@@ -634,13 +643,13 @@ header{
         <div class="grid-2">
           <article class="season-box" data-num="01" onclick="openSeasonDetail('S1')">
             <span class="badge" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span>
-            <h3>Season 01</h3>
-            <p>SPL T10 2024-2025</p>
+            <h3 data-en="Season 01" data-bn="সিজন ০১">Season 01</h3>
+            <p data-en="SPL T10 2024-2025" data-bn="SPL T10 ২০২৪-২০২৫">SPL T10 2024-2025</p>
           </article>
           <article class="season-box" data-num="02" onclick="openSeasonDetail('S2')">
             <span class="badge" data-en="COMPLETED" data-bn="সম্পন্ন">COMPLETED</span>
-            <h3>Season 02</h3>
-            <p>SPL T10 2025-2026</p>
+            <h3 data-en="Season 02" data-bn="সিজন ০২">Season 02</h3>
+            <p data-en="SPL T10 2025-2026" data-bn="SPL T10 ২০২৫-২০২৬">SPL T10 2025-2026</p>
           </article>
         </div>
       </div>
@@ -672,8 +681,8 @@ header{
         </div>
 
         <div class="tabs">
-          <button class="tab-btn active" id="teamTabOverviewBtn" type="button" onclick="switchTeamTab('overview')">Overview</button>
-          <button class="tab-btn" id="teamTabPlayersBtn" type="button" onclick="switchTeamTab('players')">Players</button>
+          <button class="tab-btn active" id="teamTabOverviewBtn" type="button" onclick="switchTeamTab('overview')" data-en="Overview" data-bn="ওভারভিউ">Overview</button>
+          <button class="tab-btn" id="teamTabPlayersBtn" type="button" onclick="switchTeamTab('players')" data-en="Players" data-bn="খেলোয়াড়">Players</button>
         </div>
 
         <div id="teamOverviewPane"></div>
@@ -703,8 +712,8 @@ header{
       </div>
 
       <div class="tabs">
-        <button class="tab-btn active" id="playerTabOverviewBtn" type="button" onclick="switchPlayerTab('overview')">Overview</button>
-        <button class="tab-btn" id="playerTabTeamsBtn" type="button" onclick="switchPlayerTab('teams')">Teams</button>
+        <button class="tab-btn active" id="playerTabOverviewBtn" type="button" onclick="switchPlayerTab('overview')" data-en="Overview" data-bn="ওভারভিউ">Overview</button>
+        <button class="tab-btn" id="playerTabTeamsBtn" type="button" onclick="switchPlayerTab('teams')" data-en="Teams" data-bn="দলসমূহ">Teams</button>
       </div>
 
       <div id="playerOverviewPane"></div>
@@ -765,10 +774,10 @@ header{
       <div class="grid-3" id="directorPanelGrid" style="margin-top:20px"></div>
 
       <div class="director-card dev-card" id="developerCard">
-        <div class="eyebrow" style="margin-bottom:12px">Developed by...</div>
-        <div class="director-pic">SN</div>
+        <div class="eyebrow" style="margin-bottom:12px" data-en="Developed by..." data-bn="ডেভেলপ করেছেন...">Developed by...</div>
+        <img class="dev-square-pic" src="file_00000000fee482118d06f761cbb84277.png" alt="Shahria Nafiz Masum">
         <h3 class="director-name">Shahria Nafiz Masum</h3>
-        <p class="director-role">Developer</p>
+        <p class="director-role" data-en="Developer" data-bn="ডেভেলপার">Developer</p>
       </div>
 
       <div class="brand-signoff">
@@ -783,22 +792,76 @@ header{
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbxga1GsR5689bz8PJhTp-VOXRhhS3LlQnXQs2myGCNncj0WI0MORQxqbqolSQV0bWk/exec";
 
+const I18N = {
+  en: {
+    searchPlaceholder: "Search player by name...",
+    champions: "Champions",
+    runnersUp: "Runners-up",
+    pot: "Player of the Tournament",
+    details: "Details",
+    champ: "Champ",
+    name: "Name",
+    battingHand: "Batting hand",
+    bowlingHand: "Bowling Hand",
+    from: "From",
+    seasons: "Seasons",
+    noPlayersTeam: "No players listed under this team yet.",
+    noPlayerMatch: "No matching player found.",
+    noTeamHistory: "No team history recorded yet.",
+    season1: "Season 1",
+    season2: "Season 2",
+    gallerySuffix: "Gallery",
+    mediaSlot: "Photo / Video Slot",
+    defaultSeasonHeading: {
+      S1: "SPL T10 2024-2025 Season 1",
+      S2: "SPL T10 2025-2026 Season 2"
+    }
+  },
+  bn: {
+    searchPlaceholder: "খেলোয়াড়ের নাম লিখে খুঁজুন...",
+    champions: "চ্যাম্পিয়ন",
+    runnersUp: "রানার্স-আপ",
+    pot: "টুর্নামেন্ট সেরা খেলোয়াড়",
+    details: "বিস্তারিত তথ্য",
+    champ: "চ্যাম্পিয়নশিপ",
+    name: "নাম",
+    battingHand: "ব্যাটিং হাত",
+    bowlingHand: "বোলিং হাত",
+    from: "এলাকা",
+    seasons: "সিজনসমূহ",
+    noPlayersTeam: "এই দলে এখনো কোনো খেলোয়াড় যুক্ত করা হয়নি।",
+    noPlayerMatch: "কোনো খেলোয়াড় খুঁজে পাওয়া যায়নি।",
+    noTeamHistory: "এখনো কোনো দলের ইতিহাস যুক্ত করা হয়নি।",
+    season1: "সিজন ১",
+    season2: "সিজন ২",
+    gallerySuffix: "গ্যালারি",
+    mediaSlot: "ছবি / ভিডিও স্লট",
+    defaultSeasonHeading: {
+      S1: "SPL T10 ২০২৪-২০২৫ সিজন ১",
+      S2: "SPL T10 ২০২৫-২০২৬ সিজন ২"
+    }
+  }
+};
+
 let currentLang = 'en';
 let previousViewBeforePlayer = 'competitors';
 let selectedTeamId = null;
 let selectedPlayerId = null;
+let openedSeasonKey = null;
+let openedMomentsSeason = null;
 
-// Default structured data (automatically enriched when Google Sheet has matching rows)
 const state = {
   seasons: {
     S1: {
-      heading: "SPL T10 2024-2025 Season 1",
+      headingEn: "SPL T10 2024-2025 Season 1",
+      headingBn: "SPL T10 ২০২৪-২০২৫ সিজন ১",
       champion: { name: "Season 01 Champions", logo: "", details: "Official champion record and match summary will be updated here." },
       runnerUp: { name: "Season 01 Runners-up", logo: "", details: "Official runners-up record and summary will be updated here." },
       pot: { name: "Player of the Tournament", photo: "", details: "Season 01 standout performer record will be updated here." }
     },
     S2: {
-      heading: "SPL T10 2025-2026 Season 2",
+      headingEn: "SPL T10 2025-2026 Season 2",
+      headingBn: "SPL T10 ২০২৫-২০২৬ সিজন ২",
       champion: { name: "Season 02 Champions", logo: "", details: "Official champion record and match summary will be updated here." },
       runnerUp: { name: "Season 02 Runners-up", logo: "", details: "Official runners-up record and summary will be updated here." },
       pot: { name: "Player of the Tournament", photo: "", details: "Season 02 standout performer record will be updated here." }
@@ -854,6 +917,10 @@ const state = {
   ]
 };
 
+function t() {
+  return I18N[currentLang] || I18N.en;
+}
+
 function esc(v) {
   return String(v ?? '')
     .replace(/&/g, '&amp;')
@@ -903,22 +970,40 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-en][data-bn]').forEach(el => {
     el.innerHTML = el.dataset[lang];
   });
+  document.getElementById('legendSearchInput').placeholder = t().searchPlaceholder;
   document.getElementById('optEn').classList.toggle('active', lang === 'en');
   document.getElementById('optBn').classList.toggle('active', lang === 'bn');
+
+  if (openedSeasonKey) openSeasonDetail(openedSeasonKey);
+  if (selectedTeamId && document.getElementById('teamProfileScreen').style.display !== 'none') {
+    openTeamProfile(selectedTeamId);
+  }
+  if (selectedPlayerId && document.getElementById('view-player-profile').classList.contains('active')) {
+    openPlayerProfile(selectedPlayerId, previousViewBeforePlayer);
+  }
+  renderMomentsCards();
+  if (openedMomentsSeason) {
+    const label = openedMomentsSeason === 'S1' ? t().season1 : t().season2;
+    openMomentsGallery(openedMomentsSeason, label);
+  }
 }
 
 /* 2. Tournament History */
 function openSeasonDetail(seasonKey) {
+  openedSeasonKey = seasonKey;
   const s = state.seasons[seasonKey];
   if (!s) return;
   document.getElementById('historyListScreen').style.display = 'none';
   document.getElementById('historyDetailScreen').style.display = 'block';
-  document.getElementById('seasonDetailHeading').textContent = s.heading;
+  const heading = currentLang === 'bn'
+    ? (s.headingBn || t().defaultSeasonHeading[seasonKey] || s.headingEn)
+    : (s.headingEn || t().defaultSeasonHeading[seasonKey]);
+  document.getElementById('seasonDetailHeading').textContent = heading;
 
   const items = [
-    { key: 'champ', label: 'Champions', data: s.champion },
-    { key: 'runner', label: 'Runners-up', data: s.runnerUp },
-    { key: 'pot', label: 'Player of the Tournament', data: s.pot }
+    { key: 'champ', label: t().champions, data: s.champion },
+    { key: 'runner', label: t().runnersUp, data: s.runnerUp },
+    { key: 'pot', label: t().pot, data: s.pot }
   ];
 
   document.getElementById('seasonHonoursContainer').innerHTML = items.map(item => `
@@ -946,6 +1031,7 @@ function toggleHonour(key) {
 }
 
 function closeSeasonDetail() {
+  openedSeasonKey = null;
   document.getElementById('historyDetailScreen').style.display = 'none';
   document.getElementById('historyListScreen').style.display = 'block';
 }
@@ -984,11 +1070,11 @@ function openTeamProfile(teamId) {
   document.getElementById('teamOverviewPane').innerHTML = `
     <div class="stack">
       <div class="card">
-        <div class="eyebrow" style="margin-bottom:8px">Details</div>
+        <div class="eyebrow" style="margin-bottom:8px">${esc(t().details)}</div>
         <p style="margin:0;color:var(--text);font-size:14px">${esc(team.details || 'Official SPL T10 franchise.')}</p>
       </div>
       <div class="card">
-        <div class="eyebrow">Champ</div>
+        <div class="eyebrow">${esc(t().champ)}</div>
         <div class="stars">${stars}</div>
       </div>
     </div>
@@ -1011,7 +1097,7 @@ function openTeamProfile(teamId) {
           <span style="color:var(--gold2);font-weight:800">→</span>
         </div>
       `).join('') + `</div>`
-    : `<div class="card"><p style="margin:0;color:var(--muted)">No players listed under this team yet.</p></div>`;
+    : `<div class="card"><p style="margin:0;color:var(--muted)">${esc(t().noPlayersTeam)}</p></div>`;
 
   switchTeamTab('overview');
 }
@@ -1025,6 +1111,7 @@ function switchTeamTab(tab) {
 }
 
 function closeTeamProfile() {
+  selectedTeamId = null;
   document.getElementById('teamProfileScreen').style.display = 'none';
   document.getElementById('teamsListScreen').style.display = 'block';
 }
@@ -1047,7 +1134,7 @@ function renderLegendPlayers() {
           <span style="color:var(--gold2);font-weight:800">→</span>
         </div>
       `).join('')
-    : `<div class="card"><p style="margin:0;color:var(--muted)">No matching player found.</p></div>`;
+    : `<div class="card"><p style="margin:0;color:var(--muted)">${esc(t().noPlayerMatch)}</p></div>`;
 }
 
 function openPlayerProfile(playerId, sourceView) {
@@ -1067,10 +1154,10 @@ function openPlayerProfile(playerId, sourceView) {
   document.getElementById('playerOverviewPane').innerHTML = `
     <div class="card">
       <div class="info-table">
-        <div class="info-row"><span>Name</span><strong>${esc(player.name)}</strong></div>
-        <div class="info-row"><span>Batting hand</span><strong>${esc(player.battingHand || '-')}</strong></div>
-        <div class="info-row"><span>Bowling Hand</span><strong>${esc(player.bowlingHand || '-')}</strong></div>
-        <div class="info-row"><span>From</span><strong>${esc(player.from || '-')}</strong></div>
+        <div class="info-row"><span>${esc(t().name)}</span><strong>${esc(player.name)}</strong></div>
+        <div class="info-row"><span>${esc(t().battingHand)}</span><strong>${esc(player.battingHand || '-')}</strong></div>
+        <div class="info-row"><span>${esc(t().bowlingHand)}</span><strong>${esc(player.bowlingHand || '-')}</strong></div>
+        <div class="info-row"><span>${esc(t().from)}</span><strong>${esc(player.from || '-')}</strong></div>
       </div>
     </div>
   `;
@@ -1080,10 +1167,10 @@ function openPlayerProfile(playerId, sourceView) {
     ? `<div class="stack">` + history.map(h => `
         <div class="card">
           <strong style="font-size:17px;color:var(--gold2);display:block;margin-bottom:6px">${esc(h.teamName)}</strong>
-          <span style="font-size:13px;color:var(--muted)">Seasons: <strong style="color:var(--text)">${esc(h.seasons)}</strong></span>
+          <span style="font-size:13px;color:var(--muted)">${esc(t().seasons)}: <strong style="color:var(--text)">${esc(h.seasons)}</strong></span>
         </div>
       `).join('') + `</div>`
-    : `<div class="card"><p style="margin:0;color:var(--muted)">No team history recorded yet.</p></div>`;
+    : `<div class="card"><p style="margin:0;color:var(--muted)">${esc(t().noTeamHistory)}</p></div>`;
 
   switchPlayerTab('overview');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1098,6 +1185,7 @@ function switchPlayerTab(tab) {
 }
 
 function goBackFromPlayer() {
+  selectedPlayerId = null;
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + previousViewBeforePlayer).classList.add('active');
 }
@@ -1105,15 +1193,15 @@ function goBackFromPlayer() {
 /* 5. Moments */
 function renderMomentsCards() {
   const seasons = [
-    { key: 'S1', label: 'Season 1' },
-    { key: 'S2', label: 'Season 2' }
+    { key: 'S1', label: t().season1 },
+    { key: 'S2', label: t().season2 }
   ];
 
   document.getElementById('momentsSeasonCards').innerHTML = seasons.map(s => {
     const items = (state.moments[s.key] || []).slice(0, 3);
     return `
-      <article class="card tap" onclick="openMomentsGallery('${s.key}', '${s.label}')">
-        <h3 style="margin:0;font-size:22px;color:var(--gold2)">${s.label}</h3>
+      <article class="card tap" onclick="openMomentsGallery('${s.key}', '${esc(s.label)}')">
+        <h3 style="margin:0;font-size:22px;color:var(--gold2)">${esc(s.label)}</h3>
         <div class="moment-thumbs">
           ${items.map(m => m.url
             ? `<img class="moment-thumb" src="${esc(m.url)}" alt="${esc(m.caption)}">`
@@ -1126,9 +1214,10 @@ function renderMomentsCards() {
 }
 
 function openMomentsGallery(seasonKey, label) {
+  openedMomentsSeason = seasonKey;
   document.getElementById('momentsSeasonList').style.display = 'none';
   document.getElementById('momentsGalleryScreen').style.display = 'block';
-  document.getElementById('momentsGalleryTitle').textContent = label + ' Gallery';
+  document.getElementById('momentsGalleryTitle').textContent = label + ' ' + t().gallerySuffix;
 
   const items = state.moments[seasonKey] || [];
   document.getElementById('momentsGalleryGrid').innerHTML = items.map(m => `
@@ -1137,13 +1226,14 @@ function openMomentsGallery(seasonKey, label) {
         ? `<video controls src="${esc(m.url)}"></video>`
         : m.url
           ? `<img src="${esc(m.url)}" alt="${esc(m.caption)}">`
-          : `<div class="moment-thumb" style="aspect-ratio:16/10">Photo / Video Slot</div>`}
+          : `<div class="moment-thumb" style="aspect-ratio:16/10">${esc(t().mediaSlot)}</div>`}
       <p style="margin:10px 0 0;font-size:13px;color:var(--text)">${esc(m.caption || '')}</p>
     </article>
   `).join('');
 }
 
 function closeMomentsGallery() {
+  openedMomentsSeason = null;
   document.getElementById('momentsGalleryScreen').style.display = 'none';
   document.getElementById('momentsSeasonList').style.display = 'block';
 }
